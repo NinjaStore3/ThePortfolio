@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Το Κοπίδι · Κρεοπωλείο στο Παγκράτι</title>
+  <meta name="description" content="Κρεοπωλείο της γειτονιάς στο Παγκράτι. Φρέσκο κρέας κάθε πρωί, προσφορές εβδομάδας και παραγγελία με Viber.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/roboto-slab-greek-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <p><span class="dot"></span> Ανοιχτά σήμερα 7:30 – 15:00</p>
+    <p class="topbar__right">Παγκράτι · Τηλ. 210 ••• ••••</p>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="#">
+      <img src="logo.svg" width="58" height="58" alt="">
+      <span class="brand__text"><strong>Το Κοπίδι</strong><small>κρεοπωλείο · Παγκράτι</small></span>
+    </a>
+    <nav class="nav" aria-label="Κύριο μενού">
+      <a href="#prosfores">Προσφορές</a>
+      <a href="#pagkos">Ο πάγκος</a>
+      <a href="#orario">Ωράριο</a>
+    </nav>
+    <a class="btn btn--ox" href="#">Κάλεσε</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero__bg" src="img/hero.webp" width="1800" height="1200" alt="Φρέσκα κομμάτια μοσχάρι πάνω σε ξύλινο πάγκο με μαχαίρι">
+      <div class="hero__inner">
+        <img class="hero__stamp" src="logo-light.svg" width="200" height="200" alt="">
+        <p class="kicker">Κρεοπωλείο της γειτονιάς</p>
+        <h1>Φρέσκο κρέας κάθε πρωί. <span>Κομμένο όπως το θες.</span></h1>
+        <p class="hero__lead">Μοσχάρι, χοιρινό, αρνί και κοτόπουλο από Έλληνες παραγωγούς. Πες μας τι θα μαγειρέψεις και σου το ετοιμάζουμε.</p>
+        <div class="hero__actions">
+          <a class="btn btn--brass" href="#">Παράγγειλε με Viber</a>
+          <a class="btn btn--ghost" href="#prosfores">Προσφορές εβδομάδας</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="deals" id="prosfores">
+      <div class="board">
+        <div class="board__head">
+          <h2>Προσφορές εβδομάδας</h2>
+          <svg class="board__squiggle" viewBox="0 0 220 12" aria-hidden="true"><path d="M2 8c18-6 30 4 48-1s30-6 48 0 30 5 48-1 34-4 72 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <p class="board__date">Από Δευτέρα ως Σάββατο ή μέχρι να τελειώσουν</p>
+        </div>
+        <ul class="board__list">
+          <li><span>Μπριζόλες χοιρινές</span><i></i><b>7,90 €<small>/κιλό</small></b></li>
+          <li><span>Κιμάς μοσχαρίσιος</span><i></i><b>9,50 €<small>/κιλό</small></b></li>
+          <li><span>Μπούτι αρνίσιο</span><i></i><b>11,80 €<small>/κιλό</small></b></li>
+          <li><span>Φιλέτο κοτόπουλο</span><i></i><b>8,40 €<small>/κιλό</small></b></li>
+          <li><span>Σουβλάκια χοιρινά</span><i></i><b>0,90 €<small>/τεμ.</small></b></li>
+          <li><span>Λουκάνικα χωριάτικα</span><i></i><b>8,90 €<small>/κιλό</small></b></li>
+        </ul>
+        <p class="board__note">Για πάνω από 50 σουβλάκια, πες μας από την προηγούμενη.</p>
+      </div>
+      <aside class="deals__side">
+        <p class="deals__tag">Κάθε Δευτέρα</p>
+        <h3>Οι προσφορές αλλάζουν κάθε εβδομάδα.</h3>
+        <p>Θες να τις βλέπεις στο κινητό; Στείλε μας ένα «γεια» στο Viber και σου τις στέλνουμε κάθε Δευτέρα πρωί.</p>
+        <a class="btn btn--cream" href="#">Γράψου στο Viber</a>
+      </aside>
+    </section>
+
+    <section class="cuts" id="pagkos">
+      <div class="cuts__head">
+        <h2>Τι θα βρεις στον πάγκο</h2>
+        <p>Ό,τι δεν βλέπεις στη βιτρίνα, ρώτα. Συνήθως το έχουμε μέσα ή το φέρνουμε για αύριο.</p>
+      </div>
+      <ul class="cuts__grid">
+        <li class="cut">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 14C6 12 5 8 7 4.5M38 14c4-2 5-6 3-9.5M15 12h18c3 0 4.2 3 3.6 6L34 31c-1 4-19 4-20 0l-2.6-13c-.6-3 .6-6 3.6-6zM12 16l-7-1 2 5h5M36 16l7-1-2 5h-5"/><ellipse cx="24" cy="35" rx="8.5" ry="5.5"/><path d="M20.5 35h.01M27.5 35h.01M19 22.5h.01M29 22.5h.01" stroke-width="3.2"/></svg>
+          <h3>Μοσχάρι</h3>
+          <p>Νουά, σπάλα, ελιά, μπριζόλες, κιλότο για ψητό.</p>
+        </li>
+        <li class="cut">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="26" r="15"/><path d="M13 15 10 4l10 7.5M35 15l3-11-10 7.5"/><ellipse cx="24" cy="30.5" rx="7" ry="5"/><path d="M21.5 30.5h.01M26.5 30.5h.01M18 21h.01M30 21h.01" stroke-width="3.2"/></svg>
+          <h3>Χοιρινό</h3>
+          <p>Μπριζόλες, λαιμός, πανσέτα, σπάλα για γεμιστό.</p>
+        </li>
+        <li class="cut">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 19a5 5 0 0 1 6-7 5 5 0 0 1 12 0 5 5 0 0 1 6 7M15 18c0 13 4 22 9 22s9-9 9-22M15 21l-9 3 8 2.5M33 21l9 3-8 2.5M22 34l2 2 2-2"/><path d="M20 26h.01M28 26h.01" stroke-width="3.2"/></svg>
+          <h3>Αρνί</h3>
+          <p>Μπούτι, σπάλα, παϊδάκια. Γάλακτος κοντά στο Πάσχα.</p>
+        </li>
+        <li class="cut">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="30" cy="18" rx="12" ry="9" transform="rotate(-45 30 18)"/><path d="M22.5 26.5 14 35"/><circle cx="10.5" cy="34" r="3.2"/><circle cx="14" cy="37.5" r="3.2"/></svg>
+          <h3>Κοτόπουλο</h3>
+          <p>Ολόκληρο, φιλέτο, μπούτια, φτερούγες.</p>
+        </li>
+        <li class="cut">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="16" width="34" height="9" rx="4.5"/><rect x="7" y="28" width="34" height="9" rx="4.5"/><path d="M14 20.5h.01M21 19.5h.01M30 21h.01M35 19.5h.01M17 32.5h.01M26 31.5h.01M33 33h.01" stroke-width="3"/></svg>
+          <h3>Κιμάδες &amp; μπιφτέκια</h3>
+          <p>Μοσχαρίσιος ή ανάμεικτος, αλεσμένος τη στιγμή που τον ζητάς.</p>
+        </li>
+        <li class="cut">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 43 43 5"/><rect x="11" y="30" width="7" height="7" rx="1.5" transform="rotate(-45 14.5 33.5)"/><rect x="18" y="23" width="7" height="7" rx="1.5" transform="rotate(-45 21.5 26.5)"/><rect x="25" y="16" width="7" height="7" rx="1.5" transform="rotate(-45 28.5 19.5)"/><rect x="32" y="9" width="7" height="7" rx="1.5" transform="rotate(-45 35.5 12.5)"/></svg>
+          <h3>Σουβλάκια</h3>
+          <p>Περασμένα στο χέρι κάθε πρωί. Και μαριναρισμένα για τη σχάρα.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="craft">
+      <figure class="craft__photo">
+        <img src="img/steaks.webp" width="900" height="600" loading="lazy" alt="Δύο μοσχαρίσιες μπριζόλες σε σκούρο ξύλο">
+      </figure>
+      <div class="craft__text">
+        <p class="kicker kicker--ox">Στον πάγκο</p>
+        <h2>Το κόβουμε μπροστά σου.</h2>
+        <p>Χοντρή ή λεπτή μπριζόλα, με κόκαλο ή χωρίς. Λες εσύ πώς το θες, το κόβουμε εμείς εκείνη την ώρα.</p>
+        <ul class="ticks">
+          <li>Πες μας πόσα άτομα είστε και σου λέμε πόσο να πάρεις</li>
+          <li>Μαρινάρουμε για σχάρα, φούρνο και γάστρα</li>
+          <li>Η παραγγελία σου σε περιμένει έτοιμη στην ώρα σου</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="visit" id="orario">
+      <div class="visit__info">
+        <h2>Πέρνα από το μαγαζί</h2>
+        <p>Στο Παγκράτι, δυο βήματα από την πλατεία. Πάρκινγκ θα βρεις στα στενά.</p>
+        <table class="hours">
+          <tr><th>Δευτέρα</th><td>7:30 – 15:00</td></tr>
+          <tr><th>Τρίτη</th><td>7:30 – 14:30 · 17:30 – 20:30</td></tr>
+          <tr><th>Τετάρτη</th><td>7:30 – 15:00</td></tr>
+          <tr><th>Πέμπτη</th><td>7:30 – 14:30 · 17:30 – 20:30</td></tr>
+          <tr><th>Παρασκευή</th><td>7:30 – 14:30 · 17:30 – 20:30</td></tr>
+          <tr><th>Σάββατο</th><td>7:00 – 15:30</td></tr>
+          <tr class="is-closed"><th>Κυριακή</th><td>Κλειστά</td></tr>
+        </table>
+        <div class="visit__actions">
+          <a class="btn btn--brass" href="#">Οδηγίες στον χάρτη</a>
+          <a class="btn btn--ghost" href="#">Κάλεσε 210 ••• ••••</a>
+        </div>
+      </div>
+      <div class="map" role="img" aria-label="Χάρτης της περιοχής">
+        <svg viewBox="0 0 600 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="600" height="460" fill="#29241F"/>
+          <path d="M380 0 600 140v120L420 120Z" fill="#B08D57" opacity=".14"/>
+          <g fill="none" stroke="#F4EDE1" stroke-linecap="round">
+            <g stroke-width="14" opacity=".2"><path d="M-20 300 620 180"/><path d="M180 -20 300 480"/></g>
+            <g stroke-width="7" opacity=".14"><path d="M-20 120 620 40"/><path d="M-20 420 620 330"/><path d="M60 -20 120 480"/><path d="M430 -20 500 480"/><path d="M-20 220 280 480"/></g>
+            <g stroke-width="3" opacity=".1"><path d="M-20 360 620 255"/><path d="M-20 60 620 -10"/><path d="M360 -20 410 480"/><path d="M540 -20 580 480"/><path d="M-20 180 620 110"/></g>
+          </g>
+          <circle cx="244" cy="246" r="34" fill="#B08D57" opacity=".18"/>
+          <g transform="translate(270 212)">
+            <path d="M0-58c-21 0-36 15-36 35 0 26 36 61 36 61s36-35 36-61c0-20-15-35-36-35z" fill="#7A1F1F"/>
+            <circle cy="-23" r="13" fill="#F4EDE1"/>
+          </g>
+        </svg>
+        <span class="map__label">Παγκράτι</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="logo-light.svg" width="92" height="92" alt="Το Κοπίδι">
+    <div>
+      <p><strong>Κρεοπωλείο Το Κοπίδι</strong></p>
+      <p>Παγκράτι, Αθήνα · Τηλ. 210 ••• ••••</p>
+    </div>
+    <p class="footer__copy">© 2026 Το Κοπίδι</p>
+  </footer>
+
+  <a class="viber" href="#">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6.1L5.5 21l3.8-2.2c.9.2 1.8.3 2.7.3 5 0 9-3.6 9-8s-4-8-9-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.3 8.2c.3-.3.8-.3 1 .1l.7 1.2c.2.3.1.7-.2.9l-.4.3c.4 1 1.2 1.8 2.2 2.3l.3-.4c.2-.3.6-.4.9-.2l1.2.7c.4.2.4.7.1 1-.6.7-1.5.9-2.3.6-2-.8-3.5-2.3-4.2-4.3-.3-.8 0-1.6.7-2.2z" fill="currentColor"/></svg>
+    Παράγγειλε με Viber
+  </a>
+
+</body>
+</html>
