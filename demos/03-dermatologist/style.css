@@ -1,0 +1,156 @@
+/* Αλκυόνη Δερματολογία */
+/* @fonts */
+@font-face { font-family: 'Noto Serif Display'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url(fonts/noto-serif-display-greek-300-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Noto Serif Display'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url(fonts/noto-serif-display-latin-300-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Noto Serif Display'; font-style: italic; font-weight: 300; font-display: swap;
+  src: url(fonts/noto-serif-display-greek-300-italic.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Noto Serif Display'; font-style: italic; font-weight: 300; font-display: swap;
+  src: url(fonts/noto-serif-display-latin-300-italic.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Noto Serif Display'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/noto-serif-display-greek-400-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Noto Serif Display'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/noto-serif-display-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/source-sans-3-greek-400-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/source-sans-3-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(fonts/source-sans-3-greek-600-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(fonts/source-sans-3-latin-600-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+/* @fonts-end */
+
+:root {
+  --sand: #E9E1D6;
+  --white: #FAF8F5;
+  --sage: #9AA79A;
+  --sage-ink: #6F7D6F;
+  --ink: #2B2B2B;
+  --soft: #6B6661;
+  --line: rgba(43, 43, 43, .16);
+  --serif: 'Noto Serif Display', 'Didot', Georgia, serif;
+}
+
+body { font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-size: 1.0625rem; line-height: 1.65; color: var(--ink); background: var(--white); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.04; letter-spacing: -.01em; }
+em { font-style: italic; }
+a { text-decoration: none; }
+
+.eyebrow, .sec-num, .link, .btn, figcaption, .menu-btn {
+  font-size: .75rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+}
+.eyebrow { color: var(--sage-ink); }
+.link { border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.link:hover { color: var(--sage-ink); }
+.btn { display: inline-flex; align-items: center; gap: 14px; padding: 17px 26px; background: var(--ink); color: var(--white); border: 1px solid var(--ink); transition: background .25s, color .25s; }
+.btn:hover { background: transparent; color: var(--ink); }
+.arr { width: 22px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.btn--line { background: transparent; color: var(--ink); }
+.btn--line:hover { background: var(--ink); color: var(--white); }
+
+/* header */
+.header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.header__nav, .header__end .link { display: none; }
+.header__logo img { width: 172px; height: auto; }
+.menu-btn { border-bottom: 1px solid var(--ink); padding: 4px 0; }
+.menu { position: fixed; inset: 79px 0 0; z-index: 30; background: var(--sand); padding: 40px 20px; display: flex; flex-direction: column; gap: 10px; }
+.menu[hidden] { display: none; }
+.menu a { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; }
+.menu p { margin-top: auto; color: var(--soft); font-size: .95rem; }
+
+/* hero */
+.hero { display: grid; gap: 40px; padding: 48px 20px 64px; }
+.hero h1 { font-size: clamp(3rem, 12vw, 7.4rem); margin: 22px 0 26px; }
+.hero h1 em { color: var(--sage-ink); }
+.hero__lead { max-width: 34ch; color: var(--soft); font-size: 1.12rem; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 36px; }
+.hero__figure { position: relative; }
+.arch { border-radius: 999px 999px 0 0; overflow: hidden; aspect-ratio: 3 / 4; background: var(--sand); }
+.arch img { width: 100%; height: 100%; object-fit: cover; }
+.hero__figure::before { content: ""; position: absolute; inset: -14px 14px 14px -14px; border: 1px solid var(--sage); border-radius: 999px 999px 0 0; z-index: -1; }
+figcaption { color: var(--soft); margin-top: 14px; display: flex; gap: 12px; letter-spacing: .16em; font-weight: 400; }
+figcaption span { color: var(--sage-ink); font-weight: 600; }
+
+/* statement */
+.statement { margin: 0 20px; padding: 64px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+.statement p { font-family: var(--serif); font-weight: 300; font-style: italic; font-size: clamp(1.6rem, 4.6vw, 2.9rem); line-height: 1.25; max-width: 26ch; margin: 0 auto; }
+.statement span { display: block; margin-top: 22px; font-size: .9rem; color: var(--soft); }
+
+/* section heads */
+.sec-head { display: grid; gap: 10px; margin-bottom: 40px; }
+.sec-num { color: var(--sage-ink); }
+.sec-head h2, .booking h2 { font-size: clamp(2.6rem, 8vw, 5rem); }
+.sec-head p { color: var(--soft); max-width: 44ch; }
+
+/* treatments */
+.treatments { padding: 80px 20px; }
+.treatments__cols { display: grid; gap: 56px; }
+.tlist ul { list-style: none; padding: 0; }
+.tlist h3 { font-size: 1.6rem; font-style: italic; padding-bottom: 18px; border-bottom: 1px solid var(--ink); }
+.tlist a { display: grid; grid-template-columns: 1fr auto; column-gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); transition: padding .25s; }
+.tlist strong { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; line-height: 1.2; }
+.tlist span { grid-column: 1; color: var(--soft); font-size: .98rem; margin-top: 4px; }
+.tlist i { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; color: var(--sage-ink); transition: transform .25s; }
+.tlist a:hover { padding-left: 10px; }
+.tlist a:hover i { transform: translateX(6px); }
+
+/* interior strip */
+.interior { padding: 72px 20px 88px; background: var(--sand); }
+.strip { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.strip figure { margin: 0; }
+.strip img { width: 100%; object-fit: cover; }
+.strip__a { grid-column: 1 / -1; }
+.strip__a img { aspect-ratio: 16 / 9; }
+.strip__b img { aspect-ratio: 3 / 4; }
+.strip__c img { aspect-ratio: 1; }
+.strip__d { grid-column: 1 / -1; }
+.strip__d img { aspect-ratio: 16 / 7; }
+
+/* booking */
+.booking { padding: 88px 20px; display: grid; gap: 48px; }
+.booking h2 { margin: 12px 0 18px; }
+.booking h2 em { color: var(--sage-ink); }
+.booking__lead p { color: var(--soft); max-width: 38ch; }
+.hours div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.hours dt { color: var(--soft); }
+.hours dd { margin: 0; font-variant-numeric: tabular-nums; }
+.booking__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+/* footer */
+.footer { border-top: 1px solid var(--line); padding: 48px 20px; display: grid; justify-items: center; gap: 12px; text-align: center; color: var(--soft); font-size: .92rem; }
+.footer__small { font-size: .8rem; max-width: 46ch; }
+
+@media (min-width: 820px) {
+  .header { display: grid; grid-template-columns: 1fr auto 1fr; padding: 22px 48px; }
+  .header__nav { display: flex; gap: 36px; }
+  .header__nav a { font-size: .75rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+  .header__nav a:hover { color: var(--sage-ink); }
+  .header__logo img { width: 214px; }
+  .header__end { justify-self: end; display: flex; align-items: center; gap: 24px; }
+  .header__end .link { display: inline; }
+  .menu-btn, .menu { display: none !important; }
+  .hero { grid-template-columns: 1.25fr 1fr; gap: 72px; padding: 88px 48px 120px; align-items: end; }
+  .hero__figure { max-width: 460px; justify-self: end; width: 100%; }
+  .statement { margin: 0 48px; padding: 100px 0; }
+  .treatments { padding: 120px 48px; }
+  .treatments__cols { grid-template-columns: 1fr 1fr; gap: 80px; }
+  .sec-head { grid-template-columns: 120px 1fr; align-items: baseline; margin-bottom: 64px; }
+  .sec-head p { grid-column: 2; }
+  .interior { padding: 110px 48px 130px; }
+  .strip { grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 20px; }
+  .strip__a, .strip__d { grid-column: auto; }
+  .strip__a img { aspect-ratio: 4 / 5; }
+  .strip__b { margin-top: 80px; }
+  .strip__c { margin-top: 24px; }
+  .strip__c img { aspect-ratio: 4 / 5; }
+  .strip__d { margin-top: 120px; }
+  .strip__d img { aspect-ratio: 3 / 4; }
+  .booking { grid-template-columns: 1.2fr 1fr; gap: 100px; padding: 130px 48px; align-items: end; }
+  .footer { padding: 60px 48px; }
+}
+
+@media (min-width: 1440px) {
+  .hero, .treatments, .interior, .booking { padding-left: calc((100vw - 1320px) / 2); padding-right: calc((100vw - 1320px) / 2); }
+}
