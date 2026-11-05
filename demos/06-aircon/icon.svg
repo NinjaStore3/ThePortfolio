@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="none" stroke="#0A2540" stroke-width="1.5" stroke-dasharray="2 3" opacity=".35"/>
+<path d="M28 28L28.00 10.00 M28.00 16.84L24.46 12.63 M28 28L12.41 19.00 M18.34 22.42L16.45 17.25 M18.34 22.42L12.92 23.38 M28 28L12.41 37.00 M18.34 33.58L12.92 32.62 M18.34 33.58L16.45 38.75 M28 28L28.00 46.00 M28.00 39.16L24.46 43.37" stroke="#00B3B3" stroke-width="3" stroke-linecap="round" fill="none"/>
+<path d="M28 18a10 10 0 0 1 0 20z" fill="#0A2540"/>
+<path d="M35.50 40.99L39.00 47.05 M40.99 35.50L47.05 39.00 M43.00 28.00L50.00 28.00 M40.99 20.50L47.05 17.00 M35.50 15.01L39.00 8.95" stroke="#0A2540" stroke-width="3" stroke-linecap="round" fill="none"/>
+<path d="M28 4v48" stroke="#00B3B3" stroke-width="1.5"/></svg>

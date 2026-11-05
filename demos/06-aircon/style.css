@@ -1,0 +1,172 @@
+/* Ψύχρα Κλιματισμός */
+/* @fonts */
+@font-face { font-family: 'Jura'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url(fonts/jura-greek-500-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Jura'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url(fonts/jura-latin-500-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Jura'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(fonts/jura-greek-700-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Jura'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(fonts/jura-latin-700-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/noto-sans-greek-400-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(fonts/noto-sans-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(fonts/noto-sans-greek-600-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+@font-face { font-family: 'Noto Sans'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(fonts/noto-sans-latin-600-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+/* @fonts-end */
+
+:root {
+  --teal: #00B3B3;
+  --teal-dark: #009494;
+  --teal-glow: #00D1D1;
+  --navy: #0A2540;
+  --navy-2: #0E2F52;
+  --grey: #EEF3F7;
+  --line: #D6E0EA;
+  --text-2: #4A6075;
+  --jura: 'Jura', 'Segoe UI', sans-serif;
+}
+
+body { font-family: 'Noto Sans', 'Segoe UI', sans-serif; font-size: 1rem; line-height: 1.6; color: var(--navy); background: #fff; }
+h1, h2, h3 { font-family: var(--jura); font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+a { text-decoration: none; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 20px; border-radius: 4px; font-family: var(--jura); font-weight: 700; font-size: 1rem; letter-spacing: .02em; border: 1.5px solid transparent; transition: background .2s, color .2s, border-color .2s; }
+.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.btn--sm { padding: 9px 14px; font-size: .9rem; }
+.btn--teal { background: var(--teal); color: #fff; }
+.btn--teal:hover { background: var(--teal-dark); }
+.btn--outline { border-color: var(--teal); color: var(--teal-dark); }
+.btn--outline:hover { background: var(--teal); color: #fff; }
+.btn--ghost { border-color: var(--line); color: var(--navy); }
+.btn--ghost:hover { border-color: var(--navy); }
+
+.code { font-family: var(--jura); font-weight: 700; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); }
+.code--light { color: var(--teal-glow); }
+
+/* header */
+.header { border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 20; }
+.header__bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
+.logo img { width: 150px; height: auto; }
+.tabs { display: flex; gap: 6px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs a { flex: none; font-family: var(--jura); font-weight: 700; font-size: .9rem; padding: 6px 12px; border-radius: 4px; background: var(--grey); }
+.tabs a:hover { background: var(--teal); color: #fff; }
+
+/* hero */
+.hero { display: grid; gap: 32px; padding: 36px 16px 48px; }
+.status { display: inline-flex; align-items: center; gap: 10px; font-family: var(--jura); font-weight: 700; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px; }
+.status__led { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(0, 179, 179, .2); animation: blink 2s infinite; }
+.status__sep { color: var(--line); }
+@keyframes blink { 50% { opacity: .35; } }
+.hero h1 { font-size: clamp(2.4rem, 8vw, 4.2rem); margin: 18px 0 16px; }
+.hero__lead { color: var(--text-2); font-size: 1.1rem; max-width: 42ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.hero__art svg { width: 100%; height: auto; }
+
+/* section heads */
+.head { display: grid; gap: 10px; margin-bottom: 32px; }
+.head h2 { font-size: clamp(1.9rem, 5vw, 2.8rem); max-width: 22ch; }
+
+/* services spec grid */
+.services { padding: 56px 16px; background: var(--grey); }
+.spec { list-style: none; padding: 0; display: grid; border: 1px solid var(--line); background: #fff; }
+.spec li { padding: 26px 22px; border-bottom: 1px solid var(--line); position: relative; display: grid; gap: 8px; align-content: start; }
+.spec li:last-child { border-bottom: 0; }
+.spec__id { position: absolute; top: 22px; right: 20px; font-family: var(--jura); font-weight: 700; font-size: .8rem; color: #8BA0B4; letter-spacing: .1em; }
+.spec svg { width: 40px; height: 40px; fill: none; stroke: var(--teal); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 6px; }
+.spec h3 { font-size: 1.45rem; }
+.spec p { color: var(--text-2); }
+.brands { margin-top: 22px; padding: 16px 18px; border-left: 3px solid var(--teal); background: #fff; color: var(--text-2); }
+.brands strong { color: var(--navy); }
+
+/* packages */
+.packages { padding: 64px 16px; }
+.toggle { display: inline-flex; padding: 4px; border-radius: 6px; background: var(--grey); margin-bottom: 24px; }
+.toggle button { font-family: var(--jura); font-weight: 700; padding: 8px 16px; border-radius: 4px; color: var(--text-2); }
+.toggle [aria-pressed="true"] { background: var(--navy); color: #fff; }
+.cards { display: grid; gap: 16px; }
+.pcard { border: 1px solid var(--line); border-radius: 6px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
+.pcard__season { font-family: var(--jura); font-weight: 700; color: var(--teal-dark); text-transform: uppercase; font-size: .85rem; letter-spacing: .12em; }
+.pcard h3 { font-size: 1.5rem; }
+.pcard__price { font-family: var(--jura); font-weight: 700; font-size: 1.5rem; margin: 6px 0 8px; }
+.pcard__price span { font-size: 3.6rem; line-height: 1; letter-spacing: -.02em; }
+.pcard__price small { font-size: .95rem; color: var(--text-2); font-weight: 500; }
+.pcard ul { list-style: none; padding: 0; display: grid; gap: 8px; margin-bottom: 18px; flex: 1; }
+.pcard li { padding-left: 24px; position: relative; color: var(--text-2); }
+.pcard li::before { content: ""; position: absolute; left: 0; top: .55em; width: 12px; height: 2px; background: var(--teal); }
+.pcard--main { background: var(--navy); color: #fff; border-color: var(--navy); box-shadow: 0 30px 50px -30px rgba(10, 37, 64, .7); }
+.pcard--main .pcard__season { color: var(--teal-glow); }
+.pcard--main li, .pcard--main .pcard__price small { color: #B5C6D8; }
+
+/* calculator */
+.calc { background: var(--navy); color: #fff; padding: 64px 16px; display: grid; gap: 32px; }
+.calc h2 { font-size: clamp(2rem, 5vw, 3rem); margin: 10px 0 12px; }
+.calc__intro p:not(.code) { color: #B5C6D8; max-width: 40ch; }
+.calc__panel { display: grid; gap: 1px; background: #1D3B5C; border: 1px solid #1D3B5C; border-radius: 8px; overflow: hidden; }
+.calc__form, .calc__out { background: var(--navy-2); padding: 26px 22px; }
+.calc__form { display: grid; gap: 24px; }
+.field__top { display: flex; justify-content: space-between; font-size: .95rem; color: #B5C6D8; margin-bottom: 10px; }
+.field__top b { font-family: var(--jura); font-size: 1.3rem; color: #fff; }
+.range { position: relative; height: 6px; border-radius: 3px; background: #1D3B5C; }
+.range span { position: absolute; inset: 0 auto 0 0; background: var(--teal-glow); border-radius: 3px; }
+.range i { position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 4px solid var(--teal-glow); transform: translate(-50%, -50%); }
+.field__scale { display: flex; justify-content: space-between; font-family: var(--jura); font-size: .8rem; color: #6F89A3; margin-top: 8px; }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: 6px; background: #0A2540; }
+.seg--2 { grid-template-columns: 1fr 1fr; }
+.seg span { text-align: center; padding: 9px 4px; border-radius: 4px; font-family: var(--jura); font-weight: 700; font-size: .9rem; color: #8BA0B4; }
+.seg .is-on { background: var(--teal); color: #fff; }
+.calc__out { display: grid; justify-items: center; text-align: center; align-content: center; gap: 6px; }
+.calc__out svg { width: 190px; height: auto; }
+.calc__value { font-family: var(--jura); font-weight: 700; font-size: 1.4rem; color: #B5C6D8; margin-top: -4px; }
+.calc__value span { display: block; font-size: 3.6rem; line-height: 1; color: #fff; letter-spacing: -.02em; }
+.calc__hint { color: #8BA0B4; font-size: .9rem; max-width: 30ch; margin-bottom: 14px; }
+
+/* contact */
+.contact { display: grid; gap: 1px; background: var(--line); border-top: 1px solid var(--line); }
+.contact__item { background: var(--grey); padding: 32px 16px; display: grid; gap: 8px; justify-items: start; }
+.contact__big { font-family: var(--jura); font-weight: 700; font-size: 2rem; letter-spacing: .02em; }
+.contact__item p:not(.code):not(.contact__big) { color: var(--text-2); }
+
+/* footer */
+.footer { background: var(--navy); color: #8BA0B4; padding: 28px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: .9rem; }
+.footer img { width: 150px; height: auto; }
+
+@media (min-width: 760px) {
+  .spec { grid-template-columns: 1fr 1fr; }
+  .spec li { border-right: 1px solid var(--line); }
+  .spec li:nth-child(even) { border-right: 0; }
+  .spec li:nth-child(3) { border-bottom: 0; }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .contact { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .header { display: flex; align-items: center; gap: 24px; padding: 0 48px; }
+  .header__bar { display: contents; }
+  .logo { padding: 14px 0; }
+  .logo img { width: 179px; }
+  .tabs { order: 1; margin-left: auto; padding: 0; gap: 4px; overflow: visible; }
+  .tabs a { background: none; padding: 8px 12px; }
+  .header__bar .btn { order: 2; }
+  .hero { grid-template-columns: 1fr 1.1fr; gap: 64px; padding: 80px 48px 96px; align-items: center; }
+  .services, .packages { padding: 104px 48px; }
+  .spec { grid-template-columns: repeat(4, 1fr); }
+  .spec li, .spec li:nth-child(even) { border-right: 1px solid var(--line); border-bottom: 0; }
+  .spec li:last-child { border-right: 0; }
+  .cards { gap: 24px; align-items: stretch; }
+  .pcard { padding: 36px 32px; }
+  .pcard--main { transform: translateY(-16px); }
+  .calc { grid-template-columns: 1fr 1.6fr; gap: 64px; padding: 104px 48px; align-items: center; }
+  .calc__panel { grid-template-columns: 1.2fr 1fr; }
+  .calc__form, .calc__out { padding: 36px 32px; }
+  .contact__item { padding: 48px; }
+  .footer { padding: 28px 48px; }
+}
+
+@media (min-width: 1400px) {
+  .hero, .services, .packages, .calc { padding-left: calc((100vw - 1300px) / 2); padding-right: calc((100vw - 1300px) / 2); }
+}
