@@ -55,7 +55,54 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.03em; font-weight: 700; }
 /* header */
 .top { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; background: rgba(246, 245, 242, .85); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid transparent; }
 .brand { display: block; }
-.brand img { height: 24px; width: auto; }
+.brand img, .brand .logo { height: 27px; width: auto; overflow: visible; }
+
+/* Logo: the first i-dot drops, gets dragged into the underline, and a new dot pops back.
+   The base styles are the final state, so no-JS / reduced-motion visitors see the finished logo. */
+.logo__home, .logo__mover { transform-box: fill-box; transform-origin: center; }
+.logo__mover { transform: translate(var(--dx), var(--dy)) scale(.75); }
+.logo__line { stroke-dasharray: 1; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .logo .logo__mover { animation: logo-drag 1.8s .4s both; }
+  .logo .logo__line { animation: logo-line 1.8s .4s both; }
+  .logo .logo__home { animation: logo-pop 1.8s .4s both; }
+  .logo.is-replay .logo__mover { animation: logo-drag-b 1.8s both; }
+  .logo.is-replay .logo__line { animation: logo-line-b 1.8s both; }
+  .logo.is-replay .logo__home { animation: logo-pop-b 1.8s both; }
+  .logo.was-hovered > * { animation-delay: 0s !important; }
+}
+@keyframes logo-drag {
+  0%, 10% { transform: translate(0, 0) scale(1); animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  28% { transform: translate(0, var(--dy)) scale(1.35, .6); animation-timing-function: ease-out; }
+  36% { transform: translate(0, var(--dy)) scale(.75); animation-timing-function: cubic-bezier(.7, 0, .25, 1); }
+  76%, 100% { transform: translate(var(--dx), var(--dy)) scale(.75); }
+}
+@keyframes logo-line {
+  0%, 35.9% { stroke-dashoffset: 1; opacity: 0; }
+  36% { stroke-dashoffset: 1; opacity: 1; animation-timing-function: cubic-bezier(.7, 0, .25, 1); }
+  76%, 100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes logo-pop {
+  0%, 80% { transform: scale(0); }
+  90% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+@keyframes logo-drag-b {
+  0%, 10% { transform: translate(0, 0) scale(1); animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  28% { transform: translate(0, var(--dy)) scale(1.35, .6); animation-timing-function: ease-out; }
+  36% { transform: translate(0, var(--dy)) scale(.75); animation-timing-function: cubic-bezier(.7, 0, .25, 1); }
+  76%, 100% { transform: translate(var(--dx), var(--dy)) scale(.75); }
+}
+@keyframes logo-line-b {
+  0%, 35.9% { stroke-dashoffset: 1; opacity: 0; }
+  36% { stroke-dashoffset: 1; opacity: 1; animation-timing-function: cubic-bezier(.7, 0, .25, 1); }
+  76%, 100% { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes logo-pop-b {
+  0%, 80% { transform: scale(0); }
+  90% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
 .top__nav { display: none; }
 
 /* hero */
@@ -152,7 +199,7 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.03em; font-weight: 700; }
 
 /* footer */
 .foot { display: flex; justify-content: space-between; gap: 16px; padding: 28px 16px 36px; color: var(--ink-2); font-size: .95rem; max-width: 1240px; margin: 0 auto; }
-.foot .brand img { height: 20px; }
+.foot .brand img { height: 22px; }
 .foot { align-items: center; }
 
 /* lightbox */
