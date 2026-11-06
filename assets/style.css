@@ -185,15 +185,14 @@ section[id] { scroll-margin-top: 88px; }
 .plan__text { color: var(--ink-2); margin: 10px 0 18px; }
 .plan__list { margin: -4px 0 18px; gap: 8px; font-size: .98rem; }
 .plan__note { font-size: .85rem; color: var(--ink-2); margin: 0 0 18px; }
-.plan--shop { background: var(--accent-soft); border-color: #D5DCFF; }
-.plan--shop .plan__label { color: var(--accent); }
-.plan--shop .checks li::before { background-color: #fff; }
+
 .plan .btn { margin-top: auto; }
 .plan--featured { background: var(--ink); color: #fff; border-color: var(--ink); }
 .plan--featured .plan__label, .plan--featured .plan__price, .plan--featured .plan__monthly, .plan--featured .plan__text { color: #B9B6AF; }
 .plan--featured .plan__price b, .plan--featured .plan__monthly b { color: #fff; }
 .plan--featured .plan__list { color: #E7E5E0; }
 .plan--featured .checks li::before { background-color: #2A2A2A; }
+.plan--featured .plan__note { color: #9A978F; }
 .plans__includes { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; }
 .plans__includes h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 18px; }
 .checks { list-style: none; padding: 0; display: grid; gap: 10px; }
@@ -271,7 +270,6 @@ section[id] { scroll-margin-top: 88px; }
   .works__grid { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
   .how__steps { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .plans__grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .plan--shop { grid-column: 1 / -1; }
   .plans__includes { grid-column: 1 / -1; padding: 32px; }
   .plans__includes .checks { grid-template-columns: 1fr 1fr; column-gap: 32px; }
 
@@ -324,8 +322,6 @@ section[id] { scroll-margin-top: 88px; }
   .wall__col--c { display: flex; }
 }
 @media (min-width: 1024px) {
-  .plans__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .plan--shop { grid-column: auto; }
   .plan { padding: 32px 30px; }
   .plans__includes .checks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .example { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: 48px; padding: 10px 48px 10px 10px; }
