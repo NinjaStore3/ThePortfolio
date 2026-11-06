@@ -11,6 +11,8 @@
 //   {slug}-desktop-thumb.webp  top of the desktop page (portfolio card)
 //   {slug}-mobile-thumb.webp   top of the mobile page (portfolio card)
 //
+// Extra pages that are not a demo's index.html (e.g. the e-shop example) are listed in EXTRA_PAGES.
+//
 // Fixed elements (sticky call bars, floating buttons) end up at the bottom of the
 // image: the viewport is stretched to the full page height before capturing.
 // WebP encoding happens inside Chromium (canvas.toDataURL), so Playwright is the
@@ -28,6 +30,10 @@ const outDir = path.join(root, 'assets', 'shots');
 const VARIANTS = [
   { name: 'desktop', width: 1440, height: 900, dpr: 1, quality: 0.8, thumbWidth: 960 },
   { name: 'mobile', width: 390, height: 844, dpr: 2, quality: 0.72, thumbWidth: 390 },
+];
+
+const EXTRA_PAGES = [
+  { slug: '01-butcher-eshop', path: '/demos/01-butcher/eshop.html' },
 ];
 
 const TYPES = {
@@ -54,13 +60,14 @@ function startServer() {
   return new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server)));
 }
 
-async function listDemos(only) {
+async function listPages(only) {
   const entries = await readdir(path.join(root, 'demos'), { withFileTypes: true });
-  return entries
+  const demos = entries
     .filter((d) => d.isDirectory() && /^\d\d-/.test(d.name))
-    .map((d) => d.name)
-    .filter((slug) => only.length === 0 || only.includes(slug))
-    .sort();
+    .map((d) => ({ slug: d.name, path: `/demos/${d.name}/` }));
+  return [...demos, ...EXTRA_PAGES]
+    .filter((p) => only.length === 0 || only.includes(p.slug))
+    .sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 // PNG buffer -> WebP buffer, optionally cropped to the top `cropHeight` px and resized to `width`.
@@ -111,8 +118,8 @@ async function capture(browser, url, v) {
 }
 
 const only = process.argv.slice(2);
-const demos = await listDemos(only);
-if (demos.length === 0) {
+const pages = await listPages(only);
+if (pages.length === 0) {
   console.error('No demos found' + (only.length ? ` for: ${only.join(', ')}` : ''));
   process.exit(1);
 }
@@ -124,9 +131,9 @@ const browser = await chromium.launch();
 const encoder = await browser.newPage();
 
 try {
-  for (const slug of demos) {
+  for (const { slug, path: pagePath } of pages) {
     for (const v of VARIANTS) {
-      const { png, height } = await capture(browser, `${base}/demos/${slug}/`, v);
+      const { png, height } = await capture(browser, base + pagePath, v);
       const full = await toWebp(encoder, png, { quality: v.quality });
       const thumb = await toWebp(encoder, png, { quality: v.quality, cropHeight: v.height * v.dpr, width: v.thumbWidth });
       await writeFile(path.join(outDir, `${slug}-${v.name}.webp`), full);

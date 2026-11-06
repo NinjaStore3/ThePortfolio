@@ -11,6 +11,7 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 ├─ demos/
 │  ├─ reset.css             the only shared file (CSS reset)
 │  └─ 01-butcher/ … 10-groomer/
+│       (01-butcher/eshop.html: e-shop example shown under Πακέτο Γ)
 │       index.html, style.css, logo.svg, fonts/, img/
 ├─ scripts/screenshots.mjs  regenerates assets/shots with Playwright
 ├─ _headers, robots.txt     Cloudflare Pages (robots.txt points to sitemap.xml)
@@ -50,7 +51,7 @@ npm run shots -- 04-hair 10-groomer # only some
 ```
 
 Desktop: 1440×900 viewport, mobile: 390×844 (2× pixel density), both full page, WebP.
-The script also writes `-thumb` versions (top of the page) for the portfolio cards.
+The script also writes `-thumb` versions (top of the page) for the portfolio cards. Extra pages such as the e-shop example are listed in `EXTRA_PAGES` in the script.
 
 ## Deploy (Cloudflare Pages)
 
