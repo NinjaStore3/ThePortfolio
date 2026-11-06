@@ -6,7 +6,7 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 ```
 /
 ├─ index.html               portfolio (indexable)
-├─ assets/                  portfolio css, js, fonts (Inter), favicon
+├─ assets/                  portfolio css, js, fonts (Inter), logo.svg / logo-light.svg / favicon.svg
 │  └─ shots/                generated screenshots ({slug}-desktop/-mobile[-thumb].webp)
 ├─ demos/
 │  ├─ reset.css             the only shared file (CSS reset)
@@ -21,7 +21,6 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 
 In `index.html`:
 
-- `[ΟΝΟΜΑ / BRAND]` (header, footer, `<title>`, meta tags)
 - `[ΤΗΛΕΦΩΝΟ]`, `[EMAIL]` and the three contact links in «Επικοινωνία» (the HTML comments show the `tel:`, `viber://` and `mailto:` formats)
 - The FAQ answers are drafts: check them, especially «Τι γίνεται αν σταματήσω;»
 
