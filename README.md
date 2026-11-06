@@ -13,7 +13,8 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 │  └─ 01-butcher/ … 10-groomer/
 │       index.html, style.css, logo.svg, fonts/, img/
 ├─ scripts/screenshots.mjs  regenerates assets/shots with Playwright
-├─ _headers, robots.txt     Cloudflare Pages
+├─ _headers, robots.txt     Cloudflare Pages (robots.txt points to sitemap.xml)
+├─ sitemap.xml              portfolio page only (demos are noindex)
 └─ PHOTOS.md                photo sources (Unsplash License)
 ```
 
@@ -23,6 +24,12 @@ In `index.html`:
 
 - `[ΤΗΛΕΦΩΝΟ]`, `[EMAIL]` and the three contact links in «Επικοινωνία» (the HTML comments show the `tel:`, `viber://` and `mailto:` formats)
 - The FAQ answers are drafts: check them, especially «Τι γίνεται αν σταματήσω;»
+
+## SEO
+
+- Canonical address: `https://istoselidakias.gr/` (canonical link, `og:url`, sitemap, structured data in `index.html`).
+- Link preview image for Viber / WhatsApp / Facebook: `assets/og-image.jpg` (1200×630).
+- After the domain is live, add it to Google Search Console and submit `https://istoselidakias.gr/sitemap.xml`.
 
 ## Editing
 
