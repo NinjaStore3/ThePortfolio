@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Παραγγελίες · Πίνακας διαχείρισης (δείγμα)</title>
+  <link rel="icon" href="istoselidakias.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/inter-greek-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-orders" viewBox="0 0 24 24"><path d="M6 3h12l1 18H5zM9 7a3 3 0 0 0 6 0"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.6.8 2.6 2.6 3 5.2"/></symbol>
+    <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 2.6 9.5 2l1.9 4.6-2.3 1.6a12 12 0 0 0 6.7 6.7l1.6-2.3 4.6 1.9-.6 2.9c-.2 1.1-1.2 1.9-2.3 1.9C10 19.3 4.7 14 4.7 4.9c0-1.1.8-2.1 1.9-2.3z"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 10h16v10H4zM2 5h20l-1 5H3zM10 20v-5h4v5"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l3 3v4h-7M6 19a2 2 0 1 0 0-.01M17 19a2 2 0 1 0 0-.01"/></symbol>
+  </svg>
+
+  <div class="demo-bar">
+    <span><b>Δείγμα πίνακα διαχείρισης.</b> Έτσι βλέπει τις παραγγελίες του το κρεοπωλείο «Το Κοπίδι».</span>
+    <a href="appointments.html">Δείτε και τα ραντεβού</a>
+  </div>
+
+  <div class="app">
+    <aside class="side">
+      <div class="side__client"><img src="kopidi.svg" width="40" height="40" alt=""><span><b>Το Κοπίδι</b><small>κρεοπωλείο</small></span></div>
+      <nav class="side__nav" aria-label="Μενού διαχείρισης">
+        <a class="is-on" href="#"><svg><use href="#i-orders"/></svg>Παραγγελίες<b>3</b></a>
+        <a href="#"><svg><use href="#i-box"/></svg>Προϊόντα</a>
+        <a href="#"><svg><use href="#i-users"/></svg>Πελάτες</a>
+        <a href="#"><svg><use href="#i-cog"/></svg>Ρυθμίσεις</a>
+      </nav>
+      <p class="side__foot">Πίνακας διαχείρισης από <img src="istoselidakias.svg" width="256" height="48" alt="Istoselidakias"></p>
+    </aside>
+
+    <main class="main">
+      <header class="page-head">
+        <div>
+          <h1>Παραγγελίες</h1>
+          <p>Σήμερα · online παραγγελίες από το site</p>
+        </div>
+        <div class="page-head__actions">
+          <label class="search"><svg><use href="#i-search"/></svg><input type="text" placeholder="Αναζήτηση πελάτη ή παραγγελίας"></label>
+          <a class="btn btn--ghost" href="#">Παύση παραγγελιών</a>
+        </div>
+      </header>
+
+      <div class="tabs" role="tablist" aria-label="Κατάσταση">
+        <span class="tab is-on">Όλες <b>7</b></span>
+        <span class="tab">Νέες <b>3</b></span>
+        <span class="tab">Σε ετοιμασία <b>2</b></span>
+        <span class="tab">Έτοιμες <b>2</b></span>
+        <span class="tab">Παραδόθηκαν</span>
+      </div>
+
+      <div class="orders">
+        <div class="card list">
+          <div class="order order--head" aria-hidden="true">
+            <span>#</span><span>Πελάτης &amp; προϊόντα</span><span>Παράδοση</span><span>Σύνολο</span><span>Κατάσταση</span>
+          </div>
+          <ul class="list__rows">
+            <li class="order is-selected">
+              <span class="order__id">#1048</span>
+              <span class="order__who"><b>Μαρία Κ.</b><small>Μπριζόλα μοσχαρίσια 1 κιλό · Κιμάς ½ κιλό · Σουβλάκια ×10</small></span>
+              <span class="order__when"><svg><use href="#i-store"/></svg><span>Παραλαβή<small>18:00 – 18:30</small></span></span>
+              <span class="order__sum">30,65 €<small>Κάρτα · πληρώθηκε</small></span>
+              <span class="order__status"><span class="badge badge--new">Νέα</span></span>
+            </li>
+            <li class="order">
+              <span class="order__id">#1047</span>
+              <span class="order__who"><b>Γιώργος Τ.</b><small>Μπούτι αρνίσιο 2 κιλά</small></span>
+              <span class="order__when"><svg><use href="#i-truck"/></svg><span>Delivery, Βύρωνας<small>19:00 – 19:30</small></span></span>
+              <span class="order__sum">23,60 €<small>Αντικαταβολή</small></span>
+              <span class="order__status"><span class="badge badge--new">Νέα</span></span>
+            </li>
+            <li class="order">
+              <span class="order__id">#1046</span>
+              <span class="order__who"><b>Ελένη Σ.</b><small>Φιλέτο κοτόπουλο 1 κιλό · Λουκάνικα ½ κιλό</small></span>
+              <span class="order__when"><svg><use href="#i-store"/></svg><span>Παραλαβή<small>17:30 – 18:00</small></span></span>
+              <span class="order__sum">12,85 €<small>Κάρτα · πληρώθηκε</small></span>
+              <span class="order__status"><span class="badge badge--new">Νέα</span></span>
+            </li>
+            <li class="order">
+              <span class="order__id">#1045</span>
+              <span class="order__who"><b>Νίκος Π.</b><small>Σουβλάκια χοιρινά ×30</small></span>
+              <span class="order__when"><svg><use href="#i-truck"/></svg><span>Delivery, Παγκράτι<small>18:30 – 19:00</small></span></span>
+              <span class="order__sum">27,00 €<small>Κάρτα · πληρώθηκε</small></span>
+              <span class="order__status"><span class="badge badge--prep">Σε ετοιμασία</span></span>
+            </li>
+            <li class="order">
+              <span class="order__id">#1044</span>
+              <span class="order__who"><b>Άννα Μ.</b><small>Χοιρινές μπριζόλες 2 κιλά</small></span>
+              <span class="order__when"><svg><use href="#i-store"/></svg><span>Παραλαβή<small>17:00 – 17:30</small></span></span>
+              <span class="order__sum">15,80 €<small>Αντικαταβολή</small></span>
+              <span class="order__status"><span class="badge badge--prep">Σε ετοιμασία</span></span>
+            </li>
+            <li class="order">
+              <span class="order__id">#1043</span>
+              <span class="order__who"><b>Κώστας Δ.</b><small>Κιμάς μοσχαρίσιος 1 κιλό</small></span>
+              <span class="order__when"><svg><use href="#i-store"/></svg><span>Παραλαβή<small>16:30 – 17:00</small></span></span>
+              <span class="order__sum">9,50 €<small>Κάρτα · πληρώθηκε</small></span>
+              <span class="order__status"><span class="badge badge--ready">Έτοιμη</span></span>
+            </li>
+            <li class="order">
+              <span class="order__id">#1042</span>
+              <span class="order__who"><b>Δήμητρα Λ.</b><small>Μπριζόλα μοσχαρίσια 1 κιλό · Σουβλάκια ×10</small></span>
+              <span class="order__when"><svg><use href="#i-truck"/></svg><span>Delivery, Παγκράτι<small>16:00 – 16:30</small></span></span>
+              <span class="order__sum">25,90 €<small>Αντικαταβολή</small></span>
+              <span class="order__status"><span class="badge badge--ready">Έτοιμη</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="card detail" aria-label="Παραγγελία #1048">
+          <div class="detail__head">
+            <div><p class="detail__id">#1048 · πριν από 4 λεπτά</p><h2>Μαρία Κ.</h2></div>
+            <span class="badge badge--new">Νέα</span>
+          </div>
+          <dl class="detail__meta">
+            <div><dt>Παράδοση</dt><dd>Παραλαβή από το μαγαζί, 18:00 – 18:30</dd></div>
+            <div><dt>Πληρωμή</dt><dd>Κάρτα · πληρώθηκε</dd></div>
+            <div><dt>Τηλέφωνο</dt><dd>69• ••• ••••</dd></div>
+          </dl>
+          <ul class="detail__items">
+            <li><span><b>Μπριζόλα μοσχαρίσια</b><small>1 κιλό · χοντρή, με κόκαλο</small></span><span>16,90 €</span></li>
+            <li><span><b>Κιμάς μοσχαρίσιος</b><small>½ κιλό · άλεσμα μία φορά</small></span><span>4,75 €</span></li>
+            <li><span><b>Σουβλάκια χοιρινά</b><small>10 τεμ. · ρίγανη &amp; λεμόνι</small></span><span>9,00 €</span></li>
+          </ul>
+          <p class="detail__total"><span>Σύνολο</span><b>30,65 €</b></p>
+          <p class="detail__note"><b>Σημείωση πελάτη</b> Αν γίνεται, λίγο λίπος στον κιμά.</p>
+          <div class="detail__actions">
+            <a class="btn btn--primary" href="#">Σε ετοιμασία</a>
+            <a class="btn btn--ghost" href="#"><svg><use href="#i-phone"/></svg>Κλήση</a>
+          </div>
+          <p class="detail__hint">Όταν πατήσετε «Έτοιμη», ο πελάτης παίρνει μήνυμα ότι μπορεί να περάσει.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
