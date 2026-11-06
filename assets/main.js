@@ -1,3 +1,44 @@
+// Header: mobile menu, shadow once scrolled, highlight the section in view.
+(function () {
+  var top = document.querySelector('.top');
+  if (!top) return;
+  var toggle = top.querySelector('.top__toggle');
+  var links = Array.prototype.slice.call(top.querySelectorAll('.top__nav a[href^="#"]'));
+
+  function setOpen(open) {
+    top.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Κλείσιμο μενού' : 'Άνοιγμα μενού');
+  }
+  if (toggle) {
+    toggle.addEventListener('click', function () { setOpen(!top.classList.contains('is-open')); });
+    links.forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && top.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+    document.addEventListener('click', function (e) { if (top.classList.contains('is-open') && !top.contains(e.target)) setOpen(false); });
+  }
+
+  function onScroll() {
+    top.classList.toggle('is-scrolled', window.scrollY > 8);
+    if (window.scrollY < 120) links.forEach(function (a) { a.classList.remove('is-active'); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  if ('IntersectionObserver' in window) {
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('is-active'); });
+        var link = byId[entry.target.id];
+        if (link && !link.classList.contains('top__menu-cta')) link.classList.add('is-active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function (sec) { observer.observe(sec); });
+  }
+})();
+
 // Logo: replay the "drag the dot into an underline" animation on hover (once per hover).
 (function () {
   var brand = document.querySelector('.top .brand');
