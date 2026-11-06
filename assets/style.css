@@ -1,4 +1,4 @@
-/* [ΟΝΟΜΑ / BRAND] — portfolio */
+/* Istoselidakias — portfolio */
 /* @fonts */
 @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap;
   src: url(fonts/inter-greek-400-normal.woff2) format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
@@ -54,7 +54,8 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.03em; font-weight: 700; }
 
 /* header */
 .top { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; background: rgba(246, 245, 242, .85); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid transparent; }
-.brand { font-weight: 700; letter-spacing: -.02em; font-size: 1.05rem; }
+.brand { display: block; }
+.brand img { height: 24px; width: auto; }
 .top__nav { display: none; }
 
 /* hero */
@@ -151,7 +152,8 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.03em; font-weight: 700; }
 
 /* footer */
 .foot { display: flex; justify-content: space-between; gap: 16px; padding: 28px 16px 36px; color: var(--ink-2); font-size: .95rem; max-width: 1240px; margin: 0 auto; }
-.foot .brand { color: var(--ink); }
+.foot .brand img { height: 20px; }
+.foot { align-items: center; }
 
 /* lightbox */
 .lb { width: min(1200px, 100vw - 24px); height: calc(100dvh - 24px); max-width: none; max-height: none; margin: auto; padding: 0; border: 0; border-radius: 22px; background: var(--paper); color: var(--ink); overflow: hidden; box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .5); }
