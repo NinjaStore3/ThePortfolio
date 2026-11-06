@@ -1,3 +1,18 @@
+// Logo: replay the "drag the dot into an underline" animation on hover (once per hover).
+(function () {
+  var brand = document.querySelector('.top .brand');
+  var logo = brand && brand.querySelector('.logo');
+  if (!logo || !window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var busy = true;
+  logo.addEventListener('animationstart', function () { busy = true; });
+  logo.addEventListener('animationend', function (e) { if (e.target.classList.contains('logo__home')) busy = false; });
+  brand.addEventListener('mouseenter', function () {
+    if (busy) return;
+    logo.classList.add('was-hovered');  // no start delay on replays
+    logo.classList.toggle('is-replay');   // switching keyframe names restarts the animation
+  });
+})();
+
 // Portfolio lightbox: opens a demo's full-page screenshot with Desktop / Mobile tabs.
 (function () {
   var dialog = document.querySelector('.lb');
