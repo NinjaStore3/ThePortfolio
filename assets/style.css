@@ -140,7 +140,6 @@ section[id] { scroll-margin-top: 88px; }
 .kicker span::after { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .55; }
 .section-head h2 { font-size: clamp(1.75rem, 4.6vw, 2.6rem); font-weight: 600; line-height: 1.15; letter-spacing: -.028em; max-width: 25ch; }
 .section-head__text p { color: var(--ink-2); font-size: 1.05rem; max-width: 46ch; }
-.section-head__text .section-head__note { font-size: .88rem; margin-top: 10px; color: #8A867E; }
 
 /* works grid */
 .works { padding: 56px 16px; max-width: 1240px; margin: 0 auto; }
