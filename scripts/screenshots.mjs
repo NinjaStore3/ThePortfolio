@@ -34,6 +34,8 @@ const VARIANTS = [
 
 const EXTRA_PAGES = [
   { slug: '01-butcher-eshop', path: '/demos/01-butcher/eshop.html' },
+  { slug: 'admin-orders', path: '/demos/admin/orders.html' },
+  { slug: 'admin-appointments', path: '/demos/admin/appointments.html' },
 ];
 
 const TYPES = {

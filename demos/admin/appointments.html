@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Ραντεβού · Πίνακας διαχείρισης (δείγμα)</title>
+  <link rel="icon" href="istoselidakias.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/inter-greek-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M4 5h16v16H4zM4 10h16M9 3v4M15 3v4"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8 16 19 3M16 16 5 3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.6.8 2.6 2.6 3 5.2"/></symbol>
+    <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  </svg>
+
+  <div class="demo-bar">
+    <span><b>Δείγμα πίνακα διαχείρισης.</b> Έτσι βλέπει τα ραντεβού του το κομμωτήριο «Μετάξι».</span>
+    <a href="orders.html">Δείτε και τις παραγγελίες</a>
+  </div>
+
+  <div class="app">
+    <aside class="side">
+      <div class="side__client"><img class="side__wordmark" src="metaxi.svg" width="148" height="66" alt="Μετάξι hair studio"></div>
+      <nav class="side__nav" aria-label="Μενού διαχείρισης">
+        <a class="is-on" href="#"><svg><use href="#i-cal"/></svg>Ραντεβού<b>2</b></a>
+        <a href="#"><svg><use href="#i-scissors"/></svg>Υπηρεσίες</a>
+        <a href="#"><svg><use href="#i-users"/></svg>Πελάτες</a>
+        <a href="#"><svg><use href="#i-cog"/></svg>Ρυθμίσεις</a>
+      </nav>
+      <p class="side__foot">Πίνακας διαχείρισης από <img src="istoselidakias.svg" width="256" height="48" alt="Istoselidakias"></p>
+    </aside>
+
+    <main class="main">
+      <header class="page-head">
+        <div>
+          <h1>Ραντεβού</h1>
+          <p class="day-nav"><a href="#" aria-label="Προηγούμενη μέρα"><svg><use href="#i-left"/></svg></a> Τρίτη 10 Νοεμβρίου <a href="#" aria-label="Επόμενη μέρα"><svg><use href="#i-right"/></svg></a></p>
+        </div>
+        <div class="page-head__actions">
+          <div class="tabs tabs--seg"><span class="tab is-on">Ημέρα</span><span class="tab">Εβδομάδα</span></div>
+          <a class="btn btn--ghost" href="#">Κλείσιμο ώρας</a>
+          <a class="btn btn--primary" href="#"><svg><use href="#i-plus"/></svg>Νέο ραντεβού</a>
+        </div>
+      </header>
+
+      <div class="agenda">
+        <div class="card schedule">
+          <div class="schedule__heads" aria-hidden="true"><span></span><span>Δανάη</span><span>Μιχάλης</span></div>
+          <div class="schedule__grid">
+            <span class="hour" style="--s:1">10:00</span>
+            <span class="hour" style="--s:5">11:00</span>
+            <span class="hour" style="--s:9">12:00</span>
+            <span class="hour" style="--s:13">13:00</span>
+            <span class="hour" style="--s:17">14:00</span>
+            <span class="hour" style="--s:21">15:00</span>
+            <span class="hour" style="--s:25">16:00</span>
+            <span class="hour" style="--s:29">17:00</span>
+            <span class="hour" style="--s:33">18:00</span>
+
+            <div class="appt a1" style="--s:1;--e:4"><b>10:00 – 10:45</b><span>Κούρεμα γυναικείο</span><small>Ελένη Π.</small><i>Δανάη</i></div>
+            <div class="appt a2" style="--s:3;--e:5"><b>10:30 – 11:00</b><span>Κούρεμα ανδρικό</span><small>Πέτρος Δ.</small><i>Μιχάλης</i></div>
+            <div class="appt a1 appt--long" style="--s:5;--e:15"><b>11:00 – 13:30</b><span>Balayage</span><small>Κατερίνα Μ.</small><i>Δανάη</i></div>
+            <div class="appt a2" style="--s:9;--e:11"><b>12:00 – 12:30</b><span>Κούρεμα ανδρικό</span><small>Άρης Λ.</small><i>Μιχάλης</i></div>
+            <div class="appt a2 appt--online" style="--s:13;--e:17"><b>13:00 – 14:00</b><span>Ανταύγειες</span><small>Νεφέλη Σ. · online</small><i>Μιχάλης</i></div>
+            <div class="appt a1 appt--break" style="--s:15;--e:19"><b>13:30 – 14:30</b><span>Διάλειμμα</span><i>Δανάη</i></div>
+            <div class="appt a1 appt--online" style="--s:19;--e:21"><b>14:30 – 15:00</b><span>Brushing</span><small>Σοφία Α. · online</small><i>Δανάη</i></div>
+            <span class="now" style="--s:22" aria-label="Τώρα 15:15"></span>
+            <div class="appt a2" style="--s:23;--e:25"><b>15:30 – 16:00</b><span>Κούρεμα παιδικό</span><small>Αλέξης Κ.</small><i>Μιχάλης</i></div>
+            <div class="appt a1" style="--s:25;--e:29"><b>16:00 – 17:00</b><span>Βαφή ρίζας</span><small>Ιωάννα Κ.</small><i>Δανάη</i></div>
+            <div class="appt a2" style="--s:29;--e:33"><b>17:00 – 18:00</b><span>Βαφή</span><small>Δέσποινα Ρ.</small><i>Μιχάλης</i></div>
+            <div class="appt a1 appt--online" style="--s:33;--e:36"><b>18:00 – 18:45</b><span>Χτένισμα</span><small>Μυρτώ Β. · online</small><i>Δανάη</i></div>
+          </div>
+        </div>
+
+        <div class="agenda__side">
+          <section class="card requests">
+            <h2>Νέα αιτήματα <span>2</span></h2>
+            <p class="requests__sub">Ραντεβού που κλείστηκαν από το site και περιμένουν επιβεβαίωση.</p>
+            <ul>
+              <li>
+                <p><b>Χτένισμα για γάμο</b><small>Σάββατο 14/11 · 11:00 · Ραφαέλα Τ.</small></p>
+                <div><a class="btn btn--primary btn--sm" href="#">Αποδοχή</a><a class="btn btn--ghost btn--sm" href="#">Άλλη ώρα</a></div>
+              </li>
+              <li>
+                <p><b>Κούρεμα γυναικείο</b><small>Πέμπτη 12/11 · 17:30 · Χαρά Ν.</small></p>
+                <div><a class="btn btn--primary btn--sm" href="#">Αποδοχή</a><a class="btn btn--ghost btn--sm" href="#">Άλλη ώρα</a></div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="card month" aria-label="Νοέμβριος 2026">
+            <h2>Νοέμβριος 2026</h2>
+            <div class="month__grid">
+              <span class="dow">Δ</span><span class="dow">Τ</span><span class="dow">Τ</span><span class="dow">Π</span><span class="dow">Π</span><span class="dow">Σ</span><span class="dow">Κ</span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span class="off">1</span>
+              <span class="off">2</span><span class="has">3</span><span class="has">4</span><span class="has">5</span><span class="has">6</span><span class="has">7</span><span class="off">8</span>
+              <span class="off">9</span><span class="is-today has">10</span><span class="has">11</span><span class="has">12</span><span class="has">13</span><span class="has">14</span><span class="off">15</span>
+              <span class="off">16</span><span class="has">17</span><span class="has">18</span><span>19</span><span class="has">20</span><span class="has">21</span><span class="off">22</span>
+              <span class="off">23</span><span>24</span><span class="has">25</span><span>26</span><span>27</span><span class="has">28</span><span class="off">29</span>
+              <span class="off">30</span>
+            </div>
+            <p class="month__legend"><span class="dotm"></span> Μέρες με ραντεβού · Κυριακή και Δευτέρα κλειστά</p>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

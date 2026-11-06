@@ -11,7 +11,8 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 ├─ demos/
 │  ├─ reset.css             the only shared file (CSS reset)
 │  └─ 01-butcher/ … 10-groomer/
-│       (01-butcher/eshop.html: e-shop example shown under Πακέτο Γ)
+│       (01-butcher/eshop.html: e-shop example for the Πλήρες package)
+│  └─ admin/                sample admin panel: orders.html, appointments.html
 │       index.html, style.css, logo.svg, fonts/, img/
 ├─ scripts/screenshots.mjs  regenerates assets/shots with Playwright
 ├─ _headers, robots.txt     Cloudflare Pages (robots.txt points to sitemap.xml)
