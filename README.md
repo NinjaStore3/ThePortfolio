@@ -24,7 +24,7 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 
 In `index.html`:
 
-- `[ΤΗΛΕΦΩΝΟ]`, `[EMAIL]` and the three contact links in «Επικοινωνία» (the HTML comments show the `tel:`, `viber://` and `mailto:` formats)
+- `[EMAIL]` and its link in «Επικοινωνία» (the HTML comment shows the `mailto:` format); the phone and Viber links are set
 - The FAQ answers are drafts: check them, especially «Τι γίνεται αν σταματήσω;»
 
 ## SEO
