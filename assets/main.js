@@ -123,8 +123,8 @@
   });
 })();
 
-// Interest form: sent through FormSubmit's AJAX endpoint so the visitor stays on the page.
-// Without JS the form still posts normally and FormSubmit redirects back (_next).
+// Interest form: sent to Web3Forms with fetch so the visitor stays on the page.
+// Without JS the form still posts normally and Web3Forms redirects back (redirect field).
 (function () {
   var form = document.querySelector('.cform');
   if (!form) return;
@@ -140,30 +140,32 @@
   var send = form.querySelector('.cform__send');
   var status = form.querySelector('.cform__status');
   var label = send.textContent;
-  var endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (send.disabled) return;
     var data = {};
-    new FormData(form).forEach(function (value, key) { if (key !== '_next') data[key] = value; });
+    new FormData(form).forEach(function (value, key) {
+      if (key !== 'redirect' && String(value).trim() !== '') data[key] = value;
+    });
     send.disabled = true;
     send.textContent = 'Αποστολή…';
     status.textContent = '';
-    fetch(endpoint, {
+    fetch(form.action, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(data)
     })
       .then(function (r) { return r.json(); })
       .then(function (res) {
-        if (String(res.success) !== 'true') throw new Error(res.message || 'not sent');
+        if (res.success !== true) throw new Error(res.message || 'not sent');
         var done = form.querySelector('.cform__done');
         form.classList.add('is-sent');
         done.hidden = false;
         done.focus();
       })
-      .catch(function () {
+      .catch(function (err) {
+        if (window.console) console.warn('Form not sent:', err && err.message);
         status.textContent = 'Κάτι πήγε στραβά και το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή πάρτε μας τηλέφωνο στο 698 013 5331.';
       })
       .then(function () { send.disabled = false; send.textContent = label; });

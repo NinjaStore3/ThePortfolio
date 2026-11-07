@@ -25,7 +25,7 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 
 In `index.html`:
 
-- The interest form in «Επικοινωνία» emails christos.sandravelis@gmail.com through FormSubmit (formsubmit.co). The first submission sends an activation email to that address; nothing is delivered until the link in it is clicked.
+- The interest form in «Επικοινωνία» is sent by Web3Forms (web3forms.com) to the email the access key was created with. The key is the `access_key` hidden input in `index.html`; get a new one at web3forms.com to change the receiving address.
 - The FAQ answers are drafts: check them, especially «Τι γίνεται αν σταματήσω;»
 
 ## SEO
