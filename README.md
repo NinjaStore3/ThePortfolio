@@ -15,6 +15,7 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 │  └─ admin/                sample admin panel: orders.html, appointments.html
 │       index.html, style.css, logo.svg, fonts/, img/
 ├─ scripts/screenshots.mjs  regenerates assets/shots with Playwright
+├─ scripts/bust-cache.mjs   adds ?v=<hash> to CSS/JS links (npm run bust)
 ├─ _headers, robots.txt     Cloudflare Pages (robots.txt points to sitemap.xml)
 ├─ sitemap.xml              portfolio page only (demos are noindex)
 └─ PHOTOS.md                photo sources (Unsplash License)
@@ -53,6 +54,16 @@ npm run shots -- 04-hair 10-groomer # only some
 
 Desktop: 1440×900 viewport, mobile: 390×844 (2× pixel density), both full page, WebP.
 The script also writes `-thumb` versions (top of the page) for the portfolio cards. Extra pages such as the e-shop example are listed in `EXTRA_PAGES` in the script.
+
+## CSS/JS changes
+
+Every page links its CSS and JS with `?v=<hash>`, so returning visitors get the new files after a deploy instead of a cached copy (Cloudflare tells browsers to keep CSS/JS for hours). After changing any `.css` or `.js`, run:
+
+```bash
+npm run bust
+```
+
+It only rewrites links whose file content changed.
 
 ## Deploy (Cloudflare Pages)
 

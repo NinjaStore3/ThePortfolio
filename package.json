@@ -4,7 +4,8 @@
   "type": "module",
   "description": "Portfolio site with 10 one-page demo websites for local businesses. Static, no build step.",
   "scripts": {
-    "shots": "node scripts/screenshots.mjs"
+    "shots": "node scripts/screenshots.mjs",
+    "bust": "node scripts/bust-cache.mjs"
   },
   "devDependencies": {
     "playwright": "^1.49.0"
