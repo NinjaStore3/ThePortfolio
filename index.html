@@ -402,13 +402,13 @@
         </div>
       </div>
 
-      <!-- Interest form: submissions are emailed through FormSubmit (formsubmit.co). main.js sends it without leaving the page. -->
-      <form class="cform" action="https://formsubmit.co/christos.sandravelis@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Νέο ενδιαφέρον από το istoselidakias.gr">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://istoselidakias.gr/#epikoinonia">
-        <div class="cform__hp" aria-hidden="true" hidden><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <!-- Interest form: submissions are emailed by Web3Forms (web3forms.com) to the address the access key was created with. main.js sends it without leaving the page. -->
+      <form class="cform" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Νέο ενδιαφέρον από το istoselidakias.gr">
+        <input type="hidden" name="from_name" value="istoselidakias.gr">
+        <input type="hidden" name="redirect" value="https://istoselidakias.gr/#epikoinonia">
+        <div class="cform__hp" aria-hidden="true" hidden><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></div>
 
         <div class="cform__row">
           <label class="field"><span>Όνομα</span><input type="text" name="Όνομα" required autocomplete="name"></label>
@@ -471,6 +471,6 @@
     <button class="lb__nav lb__nav--next" type="button" aria-label="Επόμενο δείγμα"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
   </dialog>
 
-  <script src="assets/main.js?v=3d31823d1e" defer></script>
+  <script src="assets/main.js?v=7e8856d97d" defer></script>
 </body>
 </html>
