@@ -24,7 +24,7 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 
 In `index.html`:
 
-- `[EMAIL]` and its link in «Επικοινωνία» (the HTML comment shows the `mailto:` format); the phone and Viber links are set
+- The interest form in «Επικοινωνία» emails christos.sandravelis@gmail.com through FormSubmit (formsubmit.co). The first submission sends an activation email to that address; nothing is delivered until the link in it is clicked.
 - The FAQ answers are drafts: check them, especially «Τι γίνεται αν σταματήσω;»
 
 ## SEO
