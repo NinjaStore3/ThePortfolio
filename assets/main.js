@@ -158,8 +158,10 @@
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (String(res.success) !== 'true') throw new Error(res.message || 'not sent');
+        var done = form.querySelector('.cform__done');
         form.classList.add('is-sent');
-        form.querySelector('.cform__done').focus();
+        done.hidden = false;
+        done.focus();
       })
       .catch(function () {
         status.textContent = 'Κάτι πήγε στραβά και το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή πάρτε μας τηλέφωνο στο 698 013 5331.';
