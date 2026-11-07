@@ -122,3 +122,48 @@
     else if (e.key === 'ArrowLeft') step(-1);
   });
 })();
+
+// Interest form: sent through FormSubmit's AJAX endpoint so the visitor stays on the page.
+// Without JS the form still posts normally and FormSubmit redirects back (_next).
+(function () {
+  var form = document.querySelector('.cform');
+  if (!form) return;
+
+  // "Θέλω το Βασικό / Πλήρες" preselect the package in the form.
+  document.querySelectorAll('[data-paketo]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      form.querySelectorAll('input[name="Πακέτο"]').forEach(function (r) { r.checked = r.value === a.dataset.paketo; });
+    });
+  });
+
+  if (!window.fetch) return;
+  var send = form.querySelector('.cform__send');
+  var status = form.querySelector('.cform__status');
+  var label = send.textContent;
+  var endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (send.disabled) return;
+    var data = {};
+    new FormData(form).forEach(function (value, key) { if (key !== '_next') data[key] = value; });
+    send.disabled = true;
+    send.textContent = 'Αποστολή…';
+    status.textContent = '';
+    fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (String(res.success) !== 'true') throw new Error(res.message || 'not sent');
+        form.classList.add('is-sent');
+        form.querySelector('.cform__done').focus();
+      })
+      .catch(function () {
+        status.textContent = 'Κάτι πήγε στραβά και το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή πάρτε μας τηλέφωνο στο 698 013 5331.';
+      })
+      .then(function () { send.disabled = false; send.textContent = label; });
+  });
+})();

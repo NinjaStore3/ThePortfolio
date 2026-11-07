@@ -287,7 +287,7 @@
             <li>Κουμπιά για κλήση και Viber</li>
             <li>Χωρίς δέσμευση, σταματάτε όποτε θέλετε</li>
           </ul>
-          <a class="btn btn--line" href="#epikoinonia">Θέλω το Βασικό</a>
+          <a class="btn btn--line" href="#epikoinonia" data-paketo="Βασικό">Θέλω το Βασικό</a>
         </article>
         <article class="plan plan--featured">
           <p class="plan__label">Πλήρες · παραγγελίες ή ραντεβού</p>
@@ -301,7 +301,7 @@
             <li>Πληρωμή με κάρτα ή αντικαταβολή</li>
           </ul>
           <p class="plan__note">Οι χρεώσεις της τράπεζας για τις πληρωμές με κάρτα είναι ξεχωριστές.</p>
-          <a class="btn btn--accent" href="#epikoinonia">Θέλω το Πλήρες</a>
+          <a class="btn btn--accent" href="#epikoinonia" data-paketo="Πλήρες">Θέλω το Πλήρες</a>
         </article>
 
         <div class="plans__includes">
@@ -368,7 +368,7 @@
         </details>
         <details>
           <summary>Πώς κάνω αλλαγές;</summary>
-          <p>Μας στέλνετε μήνυμα στο Viber ή email με αυτό που θέλετε να αλλάξει, π.χ. ωράριο, τιμές ή φωτογραφία. Μία με δύο μικρές αλλαγές τον μήνα περιλαμβάνονται στο πακέτο.</p>
+          <p>Μας στέλνετε μήνυμα στο Viber ή μας παίρνετε τηλέφωνο και μας λέτε τι θέλετε να αλλάξει, π.χ. ωράριο, τιμές ή φωτογραφία. Μία με δύο μικρές αλλαγές τον μήνα περιλαμβάνονται στο πακέτο.</p>
         </details>
         <details>
           <summary>Τι γίνεται αν σταματήσω;</summary>
@@ -386,24 +386,55 @@
     </section>
 
     <section class="contact" id="epikoinonia">
-      <p class="kicker"><span>05</span>Επικοινωνία</p>
-      <h2>Πείτε μας για το μαγαζί σας.</h2>
-      <p>Πάρτε μας τηλέφωνο, στείλτε μας στο Viber ή γράψτε μας email. Όπως σας βολεύει.</p>
-      <div class="contact__buttons">
-        <a class="cbtn" href="tel:+306980135331">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 2.6 9.5 2l1.9 4.6-2.3 1.6a12 12 0 0 0 6.7 6.7l1.6-2.3 4.6 1.9-.6 2.9c-.2 1.1-1.2 1.9-2.3 1.9C10 19.3 4.7 14 4.7 4.9c0-1.1.8-2.1 1.9-2.3z"/></svg>
-          <span><small>Τηλέφωνο</small>698 013 5331</span>
-        </a>
-        <a class="cbtn" href="viber://chat?number=%2B306980135331">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6.1L5.5 21l3.8-2.2c.9.2 1.8.3 2.7.3 5 0 9-3.6 9-8s-4-8-9-8z"/></svg>
-          <span><small>Viber</small>Στείλτε μήνυμα</span>
-        </a>
-        <!-- Βάλε το email σου: href="mailto:..." -->
-        <a class="cbtn" href="#">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m3.5 6 8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          <span><small>Email</small>[EMAIL]</span>
-        </a>
+      <div class="contact__intro">
+        <p class="kicker"><span>05</span>Επικοινωνία</p>
+        <h2>Πείτε μας για το μαγαζί σας.</h2>
+        <p>Αφήστε μας τα στοιχεία σας και σας παίρνουμε εμείς τηλέφωνο. Αν προτιμάτε, καλέστε μας ή στείλτε μας στο Viber.</p>
+        <div class="contact__buttons">
+          <a class="cbtn" href="tel:+306980135331">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 2.6 9.5 2l1.9 4.6-2.3 1.6a12 12 0 0 0 6.7 6.7l1.6-2.3 4.6 1.9-.6 2.9c-.2 1.1-1.2 1.9-2.3 1.9C10 19.3 4.7 14 4.7 4.9c0-1.1.8-2.1 1.9-2.3z"/></svg>
+            <span><small>Τηλέφωνο</small>698 013 5331</span>
+          </a>
+          <a class="cbtn" href="viber://chat?number=%2B306980135331">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6.1L5.5 21l3.8-2.2c.9.2 1.8.3 2.7.3 5 0 9-3.6 9-8s-4-8-9-8z"/></svg>
+            <span><small>Viber</small>Στείλτε μήνυμα</span>
+          </a>
+        </div>
       </div>
+
+      <!-- Interest form: submissions are emailed through FormSubmit (formsubmit.co). main.js sends it without leaving the page. -->
+      <form class="cform" action="https://formsubmit.co/christos.sandravelis@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Νέο ενδιαφέρον από το istoselidakias.gr">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://istoselidakias.gr/#epikoinonia">
+        <div class="cform__hp" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+
+        <div class="cform__row">
+          <label class="field"><span>Όνομα</span><input type="text" name="Όνομα" required autocomplete="name"></label>
+          <label class="field"><span>Τηλέφωνο</span><input type="tel" name="Τηλέφωνο" required autocomplete="tel"></label>
+        </div>
+        <label class="field"><span>Email <small>(προαιρετικό)</small></span><input type="email" name="email" autocomplete="email"></label>
+        <label class="field"><span>Τι επιχείρηση έχετε;</span><input type="text" name="Επιχείρηση" placeholder="π.χ. κρεοπωλείο στο Παγκράτι"></label>
+        <fieldset class="field">
+          <legend>Ποιο πακέτο σας ενδιαφέρει;</legend>
+          <div class="chips">
+            <label><input type="radio" name="Πακέτο" value="Βασικό"><span>Βασικό</span></label>
+            <label><input type="radio" name="Πακέτο" value="Πλήρες"><span>Πλήρες</span></label>
+            <label><input type="radio" name="Πακέτο" value="Δεν ξέρω ακόμα" checked><span>Δεν ξέρω ακόμα</span></label>
+          </div>
+        </fieldset>
+        <label class="field"><span>Μήνυμα <small>(προαιρετικό)</small></span><textarea name="Μήνυμα" rows="3" placeholder="Ό,τι θέλετε να ξέρουμε από πριν."></textarea></label>
+        <button class="btn btn--accent cform__send" type="submit">Αποστολή</button>
+        <p class="cform__status" role="status" aria-live="polite"></p>
+        <p class="cform__fine">Χρησιμοποιούμε τα στοιχεία σας μόνο για να επικοινωνήσουμε μαζί σας.</p>
+
+        <div class="cform__done" tabindex="-1">
+          <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#3B5BFD"/><path d="m16 27 7 7 13-15" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Ευχαριστούμε!</h3>
+          <p>Λάβαμε το μήνυμά σας. Θα σας πάρουμε τηλέφωνο σύντομα.</p>
+        </div>
+      </form>
     </section>
   </main>
 
