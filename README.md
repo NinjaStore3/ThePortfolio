@@ -53,7 +53,7 @@ npm run shots -- 04-hair 10-groomer # only some
 ```
 
 Desktop: 1440×900 viewport, mobile: 390×844 (2× pixel density), both full page, WebP.
-The script also writes `-thumb` versions (top of the page) for the portfolio cards. Extra pages such as the e-shop example are listed in `EXTRA_PAGES` in the script.
+The script also writes `-thumb` versions (top of the page) for the portfolio cards, and smaller full-page `-hero` versions (1120px / 440px wide) that the hero showcase and the card hover scroll use. Extra pages such as the e-shop example are listed in `EXTRA_PAGES` in the script.
 
 ## CSS/JS changes
 

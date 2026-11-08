@@ -10,6 +10,8 @@
 //   {slug}-mobile.webp         390×844 viewport, full page (lightbox)
 //   {slug}-desktop-thumb.webp  top of the desktop page (portfolio card)
 //   {slug}-mobile-thumb.webp   top of the mobile page (portfolio card)
+//   {slug}-desktop-hero.webp   full desktop page at 1120px wide (hero showcase, demos only)
+//   {slug}-mobile-hero.webp    full mobile page at 440px wide (hero showcase, demos only)
 //
 // Extra pages that are not a demo's index.html (e.g. the e-shop example) are listed in EXTRA_PAGES.
 //
@@ -28,8 +30,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'assets', 'shots');
 
 const VARIANTS = [
-  { name: 'desktop', width: 1440, height: 900, dpr: 1, quality: 0.8, thumbWidth: 960 },
-  { name: 'mobile', width: 390, height: 844, dpr: 2, quality: 0.72, thumbWidth: 390 },
+  { name: 'desktop', width: 1440, height: 900, dpr: 1, quality: 0.8, thumbWidth: 960, heroWidth: 1120 },
+  { name: 'mobile', width: 390, height: 844, dpr: 2, quality: 0.72, thumbWidth: 390, heroWidth: 440 },
 ];
 
 const EXTRA_PAGES = [
@@ -66,7 +68,7 @@ async function listPages(only) {
   const entries = await readdir(path.join(root, 'demos'), { withFileTypes: true });
   const demos = entries
     .filter((d) => d.isDirectory() && /^\d\d-/.test(d.name))
-    .map((d) => ({ slug: d.name, path: `/demos/${d.name}/` }));
+    .map((d) => ({ slug: d.name, path: `/demos/${d.name}/`, demo: true }));
   return [...demos, ...EXTRA_PAGES]
     .filter((p) => only.length === 0 || only.includes(p.slug))
     .sort((a, b) => a.slug.localeCompare(b.slug));
@@ -133,13 +135,17 @@ const browser = await chromium.launch();
 const encoder = await browser.newPage();
 
 try {
-  for (const { slug, path: pagePath } of pages) {
+  for (const { slug, path: pagePath, demo } of pages) {
     for (const v of VARIANTS) {
       const { png, height } = await capture(browser, base + pagePath, v);
       const full = await toWebp(encoder, png, { quality: v.quality });
       const thumb = await toWebp(encoder, png, { quality: v.quality, cropHeight: v.height * v.dpr, width: v.thumbWidth });
       await writeFile(path.join(outDir, `${slug}-${v.name}.webp`), full);
       await writeFile(path.join(outDir, `${slug}-${v.name}-thumb.webp`), thumb);
+      if (demo) {
+        const hero = await toWebp(encoder, png, { quality: 0.74, width: v.heroWidth });
+        await writeFile(path.join(outDir, `${slug}-${v.name}-hero.webp`), hero);
+      }
       console.log(`${slug} ${v.name.padEnd(7)} ${v.width}×${height}  full ${(full.length / 1024).toFixed(0)}KB  thumb ${(thumb.length / 1024).toFixed(0)}KB`);
     }
   }

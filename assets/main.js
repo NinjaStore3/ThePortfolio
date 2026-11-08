@@ -86,7 +86,9 @@
     body.scrollTop = 0;
   }
 
+  var opener = null;
   function open(i) {
+    opener = document.activeElement;
     index = i;
     view = 'desktop';
     render();
@@ -113,7 +115,7 @@
   dialog.querySelector('.lb__nav--next').addEventListener('click', function () { step(1); });
   dialog.addEventListener('close', function () {
     document.documentElement.classList.remove('lb-lock');
-    cards[index].focus();
+    (opener && opener.focus ? opener : cards[index]).focus({ preventScroll: true });
   });
   // click on the dark backdrop closes
   dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
@@ -169,5 +171,152 @@
         status.textContent = 'Κάτι πήγε στραβά και το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή πάρτε μας τηλέφωνο στο 698 013 5331.';
       })
       .then(function () { send.disabled = false; send.textContent = label; });
+  });
+})();
+
+// Hero showcase: a browser and a phone scroll through one demo at a time.
+// The chips pick the business type; it moves on by itself every ~9.5s.
+(function () {
+  var stage = document.querySelector('.stage');
+  if (!stage) return;
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.stage__chips .chip'));
+  var screens = stage.querySelector('.stage__screens');
+  var browser = stage.querySelector('.stage__browser');
+  var desk = stage.querySelector('.stage__desk');
+  var mob = stage.querySelector('.stage__mob');
+  var url = stage.querySelector('.stage__url b');
+  var caption = stage.querySelector('.stage__caption');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cards = {};
+  document.querySelectorAll('.work').forEach(function (c) { cards[c.dataset.slug] = c; });
+
+  var HOLD = 1200, SCROLL = 7000, END = 1300;
+  var index = 0, anims = [], token = 0, hovered = false, inView = true;
+
+  function src(slug, kind) { return 'assets/shots/' + slug + '-' + kind + '-hero.webp'; }
+  function decoded(img) { return img.decode ? img.decode().catch(function () {}) : Promise.resolve(); }
+  function preload(slug) {
+    return Promise.all(['desktop', 'mobile'].map(function (k) { var im = new Image(); im.src = src(slug, k); return decoded(im); }));
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function stop() { anims.forEach(function (a) { a.cancel(); }); anims = []; }
+  function halted() { return hovered || !inView || document.hidden; }
+  function sync() {
+    var h = halted();
+    anims.forEach(function (a) {
+      if (h && a.playState === 'running') a.pause();
+      else if (!h && a.playState === 'paused') a.play();
+    });
+  }
+  function scrollDistance(img) { return Math.max(0, img.getBoundingClientRect().height - img.parentNode.clientHeight); }
+
+  function run() {
+    stop();
+    if (reduce || !desk.animate) return;
+    var opts = { duration: SCROLL, delay: HOLD, easing: 'cubic-bezier(.45, 0, .55, 1)', fill: 'forwards' };
+    [desk, mob].forEach(function (img) {
+      anims.push(img.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(' + (-scrollDistance(img)) + 'px)' }], opts));
+    });
+    var bar = chips[index].querySelector('i').animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: HOLD + SCROLL + END, fill: 'forwards' });
+    bar.onfinish = function () { show((index + 1) % chips.length); };
+    anims.push(bar);
+    sync();
+  }
+
+  function centerChip(chip) {
+    var row = chip.parentNode;
+    if (row.scrollWidth <= row.clientWidth) return;
+    row.scrollTo({ left: chip.offsetLeft - (row.clientWidth - chip.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  function show(i) {
+    var mine = ++token;
+    var slug = chips[i].dataset.slug;
+    var card = cards[slug];
+    stop();
+    chips.forEach(function (c, j) {
+      c.classList.toggle('is-on', j === i);
+      c.setAttribute('aria-pressed', String(j === i));
+      c.querySelector('i').style.transform = '';
+    });
+    centerChip(chips[i]);
+    screens.classList.add('is-switching');
+    Promise.all([preload(slug), wait(260)]).then(function () {
+      if (mine !== token) return;
+      index = i;
+      desk.src = src(slug, 'desktop');
+      mob.src = src(slug, 'mobile');
+      url.textContent = slug;
+      if (card) {
+        desk.alt = card.dataset.name.replace(/[«»]/g, '') + ', ' + card.dataset.type.toLowerCase() + ': η σελίδα σε υπολογιστή';
+        browser.setAttribute('aria-label', 'Δείτε ολόκληρο το δείγμα ' + card.dataset.name);
+        caption.textContent = card.dataset.type + ' ' + card.dataset.name;
+      }
+      return Promise.all([decoded(desk), decoded(mob)]);
+    }).then(function () {
+      if (mine !== token) return;
+      screens.classList.remove('is-switching');
+      run();
+      preload(chips[(i + 1) % chips.length].dataset.slug);
+    });
+  }
+
+  chips.forEach(function (chip, i) {
+    chip.addEventListener('click', function () { if (i !== index || !anims.length) show(i); });
+  });
+  browser.addEventListener('click', function () {
+    var card = cards[chips[index].dataset.slug];
+    if (card) card.click();
+  });
+  if (window.matchMedia('(hover: hover)').matches) {
+    screens.addEventListener('mouseenter', function () { hovered = true; sync(); });
+    screens.addEventListener('mouseleave', function () { hovered = false; sync(); });
+  }
+  document.addEventListener('visibilitychange', sync);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) { inView = entries[0].isIntersecting; sync(); }).observe(stage);
+  }
+
+  Promise.all([decoded(desk), decoded(mob)]).then(function () {
+    run();
+    preload(chips[1].dataset.slug);
+  });
+})();
+
+// Sample cards: on hover the whole page scrolls inside the card's browser window.
+(function () {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  document.querySelectorAll('.work .browser__view[data-full]').forEach(function (view) {
+    view.closest('.work').addEventListener('mouseenter', function () {
+      if (view.querySelector('.browser__full')) return;
+      var img = new Image();
+      img.className = 'browser__full';
+      img.alt = '';
+      img.onload = function () { img.classList.add('is-ready'); };
+      img.src = view.dataset.full;
+      view.appendChild(img);
+    });
+  });
+})();
+
+// Sections fade up as they scroll into view. Only elements that start below the
+// fold get hidden, so nothing visible on load ever disappears.
+(function () {
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll(
+    '.section-head, .works__grid > li, .how__steps > li, .plans__grid > *, .faq details, .contact__intro, .cform'
+  )).filter(function (el) { return el.getBoundingClientRect().top > window.innerHeight; });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px' });
+  items.forEach(function (el) {
+    var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+    el.style.setProperty('--rd', (i % 2) * 90 + 'ms');
+    el.classList.add('reveal');
+    io.observe(el);
   });
 })();
