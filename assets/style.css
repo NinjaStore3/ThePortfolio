@@ -239,7 +239,6 @@ section[id] { scroll-margin-top: 88px; }
 .plan__monthly b { font-size: 1.6rem; color: var(--ink); letter-spacing: -.02em; }
 .plan__text { color: var(--ink-2); margin: 10px 0 18px; }
 .plan__list { margin: -4px 0 18px; gap: 8px; font-size: .98rem; }
-.plan__note { font-size: .85rem; color: var(--ink-2); margin: 0 0 18px; }
 
 .plan .btn { margin-top: auto; }
 .plan--featured { background: var(--ink); color: #fff; border-color: var(--ink); }
@@ -247,7 +246,6 @@ section[id] { scroll-margin-top: 88px; }
 .plan--featured .plan__price b, .plan--featured .plan__monthly b { color: #fff; }
 .plan--featured .plan__list { color: #E7E5E0; }
 .plan--featured .checks li::before { background-color: #2A2A2A; }
-.plan--featured .plan__note { color: #9A978F; }
 .plans__includes { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; }
 .plans__includes h3 { font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 18px; }
 .checks { list-style: none; padding: 0; display: grid; gap: 10px; }
