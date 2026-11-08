@@ -169,7 +169,7 @@
       })
       .catch(function (err) {
         if (window.console) console.warn('Form not sent:', err && err.message);
-        status.textContent = 'Κάτι πήγε στραβά και το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή πάρτε μας τηλέφωνο στο 698 013 5331.';
+        status.textContent = 'Κάτι πήγε στραβά και το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή πάρτε μας τηλέφωνο στο 211 218 6538.';
       })
       .then(function () { send.disabled = false; send.textContent = label; });
   });
