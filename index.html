@@ -23,7 +23,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Istoselidakias", "url": "https://istoselidakias.gr/", "image": "https://istoselidakias.gr/assets/og-image.jpg", "logo": "https://istoselidakias.gr/assets/apple-touch-icon.png", "description": "Κατασκευή ιστοσελίδων για μαγαζιά και επιχειρήσεις της γειτονιάς στην Αθήνα, με Google Maps, κουμπί για κλήση και Viber, online παραγγελίες και ραντεβού, βασικό SEO και Google Ads.", "areaServed": {"@type": "City", "name": "Αθήνα"}, "address": {"@type": "PostalAddress", "addressLocality": "Αθήνα", "addressCountry": "GR"}, "telephone": "+30 698 013 5331", "knowsLanguage": "el", "priceRange": "€"}</script>
   <link rel="preload" href="assets/fonts/inter-greek-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-greek-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=4e2cd2ec0f">
+  <link rel="stylesheet" href="assets/style.css?v=1502e83e94">
 </head>
 <body>
 
@@ -44,53 +44,50 @@
 
   <main>
     <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
       <div class="hero__text">
-        <h1>Η βιτρίνα σας, στο κινητό κάθε πελάτη.</h1>
+        <h1><span class="w" style="--i:0">Η</span> <span class="w" style="--i:1">βιτρίνα</span> <span class="w" style="--i:2">σας,</span> <span class="w" style="--i:3">στο</span> <span class="w" style="--i:4">κινητό</span> <em><span class="w" style="--i:5">κάθε</span> <span class="w" style="--i:6">πελάτη.</span></em></h1>
         <p class="hero__lead">Φτιάχνουμε σύγχρονες ιστοσελίδες για τις επιχειρήσεις της γειτονιάς. Με χάρτη στο Google, κουμπί για κλήση και Viber, και online παραγγελίες ή ραντεβού όταν τα χρειάζεστε.</p>
         <div class="hero__actions">
           <a class="btn btn--accent" href="#deigmata">Δείτε τα δείγματα</a>
-          <a class="btn btn--line" href="#epikoinonia">Επικοινωνία</a>
+          <a class="btn btn--glass" href="#epikoinonia">Επικοινωνία</a>
+        </div>
+        <div class="stage__picker">
+          <p class="stage__label">Διαλέξτε το είδος του μαγαζιού σας:</p>
+          <div class="stage__chips">
+            <button class="chip is-on" type="button" data-slug="01-butcher" aria-pressed="true">Κρεοπωλείο<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="02-pediatrician" aria-pressed="false">Παιδίατρος<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="03-dermatologist" aria-pressed="false">Δερματολόγος<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="04-hair" aria-pressed="false">Κομμωτήριο<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="05-plumber" aria-pressed="false">Υδραυλικός<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="06-aircon" aria-pressed="false">Κλιματισμός<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="07-garage" aria-pressed="false">Συνεργείο<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="08-physio" aria-pressed="false">Φυσικοθεραπεία<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="09-accountant" aria-pressed="false">Λογιστήριο<i aria-hidden="true"></i></button>
+            <button class="chip" type="button" data-slug="10-groomer" aria-pressed="false">Grooming<i aria-hidden="true"></i></button>
+          </div>
         </div>
       </div>
-      <div class="hero__wall" aria-hidden="true">
-        <div class="wall__col wall__col--up">
-          <img src="assets/shots/01-butcher-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/06-aircon-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/04-hair-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/08-physio-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/09-accountant-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/01-butcher-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/06-aircon-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/04-hair-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/08-physio-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/09-accountant-desktop-thumb.webp" width="960" height="600" alt="">
-        </div>
-        <div class="wall__col wall__col--down">
-          <img src="assets/shots/10-groomer-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/03-dermatologist-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/07-garage-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/02-pediatrician-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/05-plumber-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/10-groomer-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/03-dermatologist-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/07-garage-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/02-pediatrician-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/05-plumber-desktop-thumb.webp" width="960" height="600" alt="">
-        </div>
-        <div class="wall__col wall__col--c">
-          <img src="assets/shots/02-pediatrician-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/05-plumber-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/09-accountant-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/03-dermatologist-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/08-physio-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/02-pediatrician-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/05-plumber-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/09-accountant-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/03-dermatologist-desktop-thumb.webp" width="960" height="600" alt="">
-          <img src="assets/shots/08-physio-desktop-thumb.webp" width="960" height="600" alt="">
+
+      <div class="stage">
+        <div class="stage__screens">
+          <button class="stage__browser" type="button" aria-label="Δείτε ολόκληρο το δείγμα «Το Κοπίδι»">
+            <span class="stage__bar"><i></i><i></i><i></i><span class="stage__url">istoselidakias.gr/demos/<b>01-butcher</b></span></span>
+            <span class="stage__hint">Πατήστε για να το δείτε ολόκληρο</span>
+            <span class="stage__view"><img class="stage__desk" src="assets/shots/01-butcher-desktop-hero.webp" width="1120" height="2710" fetchpriority="high" alt="Το Κοπίδι, κρεοπωλείο: η σελίδα σε υπολογιστή"></span>
+          </button>
+          <span class="stage__phone" aria-hidden="true"><span class="stage__pview"><img class="stage__mob" src="assets/shots/01-butcher-mobile-hero.webp" width="440" height="5397" alt=""></span></span>
+          <p class="stage__caption sr-only" aria-live="polite"><span class="stage__type">Κρεοπωλείο</span> <span class="stage__name">«Το Κοπίδι»</span></p>
         </div>
       </div>
     </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Κρεοπωλεία</span><span>Ιατρεία</span><span>Κομμωτήρια</span><span>Υδραυλικοί</span><span>Τεχνικοί κλιματισμού</span><span>Συνεργεία</span><span>Φυσικοθεραπευτήρια</span><span>Λογιστικά γραφεία</span><span>Pet grooming</span><span>Φούρνοι</span><span>Καφέ</span>
+        <span>Κρεοπωλεία</span><span>Ιατρεία</span><span>Κομμωτήρια</span><span>Υδραυλικοί</span><span>Τεχνικοί κλιματισμού</span><span>Συνεργεία</span><span>Φυσικοθεραπευτήρια</span><span>Λογιστικά γραφεία</span><span>Pet grooming</span><span>Φούρνοι</span><span>Καφέ</span>
+      </div>
+    </div>
 
     <section class="works" id="deigmata">
       <div class="section-head">
@@ -107,7 +104,7 @@
         <li>
           <button class="work" type="button" data-slug="01-butcher" data-type="Κρεοπωλείο" data-name="«Το Κοπίδι»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Το Κοπίδι</span></span><img src="assets/shots/01-butcher-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Το Κοπίδι</span></span><span class="browser__view" data-full="assets/shots/01-butcher-desktop-hero.webp"><img src="assets/shots/01-butcher-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/01-butcher-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -120,7 +117,7 @@
         <li>
           <button class="work" type="button" data-slug="02-pediatrician" data-type="Παιδίατρος" data-name="«Δρ. Μυρτώ Καλλέργη»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Δρ. Μυρτώ Καλλέργη</span></span><img src="assets/shots/02-pediatrician-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Δρ. Μυρτώ Καλλέργη</span></span><span class="browser__view" data-full="assets/shots/02-pediatrician-desktop-hero.webp"><img src="assets/shots/02-pediatrician-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/02-pediatrician-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -133,7 +130,7 @@
         <li>
           <button class="work" type="button" data-slug="03-dermatologist" data-type="Δερματολόγος" data-name="«Αλκυόνη Δερματολογία»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Αλκυόνη Δερματολογία</span></span><img src="assets/shots/03-dermatologist-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Αλκυόνη Δερματολογία</span></span><span class="browser__view" data-full="assets/shots/03-dermatologist-desktop-hero.webp"><img src="assets/shots/03-dermatologist-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/03-dermatologist-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -146,7 +143,7 @@
         <li>
           <button class="work" type="button" data-slug="04-hair" data-type="Κομμωτήριο" data-name="«Μετάξι hair studio»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Μετάξι hair studio</span></span><img src="assets/shots/04-hair-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Μετάξι hair studio</span></span><span class="browser__view" data-full="assets/shots/04-hair-desktop-hero.webp"><img src="assets/shots/04-hair-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/04-hair-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -159,7 +156,7 @@
         <li>
           <button class="work" type="button" data-slug="05-plumber" data-type="Υδραυλικός" data-name="«Ροή Υδραυλικές Εργασίες»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Ροή Υδραυλικές Εργασίες</span></span><img src="assets/shots/05-plumber-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Ροή Υδραυλικές Εργασίες</span></span><span class="browser__view" data-full="assets/shots/05-plumber-desktop-hero.webp"><img src="assets/shots/05-plumber-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/05-plumber-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -172,7 +169,7 @@
         <li>
           <button class="work" type="button" data-slug="06-aircon" data-type="Κλιματισμός" data-name="«Ψύχρα Κλιματισμός»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Ψύχρα Κλιματισμός</span></span><img src="assets/shots/06-aircon-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Ψύχρα Κλιματισμός</span></span><span class="browser__view" data-full="assets/shots/06-aircon-desktop-hero.webp"><img src="assets/shots/06-aircon-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/06-aircon-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -185,7 +182,7 @@
         <li>
           <button class="work" type="button" data-slug="07-garage" data-type="Συνεργείο" data-name="«Πιστόνι Garage»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Πιστόνι Garage</span></span><img src="assets/shots/07-garage-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Πιστόνι Garage</span></span><span class="browser__view" data-full="assets/shots/07-garage-desktop-hero.webp"><img src="assets/shots/07-garage-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/07-garage-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -198,7 +195,7 @@
         <li>
           <button class="work" type="button" data-slug="08-physio" data-type="Φυσικοθεραπευτήριο" data-name="«Ανάταση Φυσικοθεραπεία»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Ανάταση Φυσικοθεραπεία</span></span><img src="assets/shots/08-physio-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Ανάταση Φυσικοθεραπεία</span></span><span class="browser__view" data-full="assets/shots/08-physio-desktop-hero.webp"><img src="assets/shots/08-physio-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/08-physio-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -211,7 +208,7 @@
         <li>
           <button class="work" type="button" data-slug="09-accountant" data-type="Λογιστικό γραφείο" data-name="«Μέτρον Λογιστικές Υπηρεσίες»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Μέτρον Λογιστικές Υπηρεσίες</span></span><img src="assets/shots/09-accountant-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Μέτρον Λογιστικές Υπηρεσίες</span></span><span class="browser__view" data-full="assets/shots/09-accountant-desktop-hero.webp"><img src="assets/shots/09-accountant-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/09-accountant-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -224,7 +221,7 @@
         <li>
           <button class="work" type="button" data-slug="10-groomer" data-type="Grooming σκύλων" data-name="«Αφράτο Grooming»">
             <span class="work__visual">
-              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Αφράτο Grooming</span></span><img src="assets/shots/10-groomer-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+              <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Αφράτο Grooming</span></span><span class="browser__view" data-full="assets/shots/10-groomer-desktop-hero.webp"><img src="assets/shots/10-groomer-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
               <span class="mini-phone"><img src="assets/shots/10-groomer-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
             </span>
             <span class="work__meta">
@@ -322,7 +319,7 @@
 
         <a class="example" href="demos/01-butcher/eshop.html" target="_blank" rel="noopener">
           <span class="example__visual">
-            <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Το Κοπίδι · Online παραγγελίες</span></span><img src="assets/shots/01-butcher-eshop-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+            <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Το Κοπίδι · Online παραγγελίες</span></span><span class="browser__view"><img src="assets/shots/01-butcher-eshop-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
             <span class="mini-phone"><img src="assets/shots/01-butcher-eshop-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
           </span>
           <span class="example__text">
@@ -334,7 +331,7 @@
         </a>
         <div class="example example--flip">
           <span class="example__visual">
-            <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Πίνακας διαχείρισης · Παραγγελίες</span></span><img src="assets/shots/admin-orders-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span>
+            <span class="browser"><span class="browser__bar"><i></i><i></i><i></i><span>Πίνακας διαχείρισης · Παραγγελίες</span></span><span class="browser__view"><img src="assets/shots/admin-orders-desktop-thumb.webp" width="960" height="600" loading="lazy" alt=""></span></span>
             <span class="mini-phone"><img src="assets/shots/admin-appointments-mobile-thumb.webp" width="390" height="844" loading="lazy" alt=""></span>
           </span>
           <span class="example__text">
@@ -471,6 +468,6 @@
     <button class="lb__nav lb__nav--next" type="button" aria-label="Επόμενο δείγμα"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
   </dialog>
 
-  <script src="assets/main.js?v=7e8856d97d" defer></script>
+  <script src="assets/main.js?v=678d84829a" defer></script>
 </body>
 </html>
