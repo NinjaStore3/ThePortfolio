@@ -1,7 +1,34 @@
 # Cloudflare Pages headers
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Keep the pages.dev copies out of search results; the real site is istoselidakias.gr.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
 # The demos are examples: keep them out of search results (each page also has <meta name="robots" content="noindex">).
 /demos/*
   X-Robots-Tag: noindex
 
+# CSS/JS are linked with ?v=<hash> (npm run bust), so a new version always has a new URL.
+/assets/style.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/main.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/tags.js
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+/assets/shots/*
+  Cache-Control: public, max-age=86400

@@ -56,6 +56,24 @@ npm run shots -- 04-hair 10-groomer # only some
 Desktop: 1440×900 viewport, mobile: 390×844 (2× pixel density), both full page, WebP.
 The script also writes `-thumb` versions (top of the page) for the portfolio cards, and smaller full-page `-hero` versions (1120px / 440px wide) that the hero showcase and the card hover scroll use. Extra pages such as the e-shop example are listed in `EXTRA_PAGES` in the script.
 
+## Google Ads / Analytics
+
+`assets/tags.js` holds the Google tag IDs (`googleAds`, `ga4`) and the Google Ads conversion labels (`lead` = form sent, `call` = tap on the phone number, `viber` = tap on Viber). While they are empty nothing loads and no cookie banner is shown. Once an ID is filled in:
+
+- a cookie banner asks for consent (Αποδοχή / Απόρριψη, same weight) and the choice is stored in `localStorage`;
+- the Google tag loads only after «Αποδοχή» (Consent Mode v2 set to granted);
+- «Ρυθμίσεις cookies» appears in the footer to change the choice.
+
+Run `npm run bust` after editing it.
+
+## SEO
+
+- `<title>`/description target «κατασκευή ιστοσελίδων / e-shop Αθήνα»; the share preview (`og:title`) is «Istoselidakias – Κατασκευή ιστοσελίδων & διαφήμιση».
+- JSON-LD `@graph`: `WebSite`, `ProfessionalService` (phone, Athens, offers with prices) and `FAQPage` (generated from the FAQ text; keep them in sync when the FAQ changes).
+- `sitemap.xml` lists the home page and the privacy policy; demos are `noindex`.
+- `_headers` adds `X-Robots-Tag: noindex` on `*.pages.dev`, security headers and long caching for the versioned CSS/JS and fonts.
+- `404.html` (noindex) stops Cloudflare Pages from serving the home page for unknown URLs.
+
 ## CSS/JS changes
 
 Every page links its CSS and JS with `?v=<hash>`, so returning visitors get the new files after a deploy instead of a cached copy (Cloudflare tells browsers to keep CSS/JS for hours). After changing any `.css` or `.js`, run:
