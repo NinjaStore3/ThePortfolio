@@ -270,6 +270,10 @@ section[id] { scroll-margin-top: 88px; }
 .ads__prices p { display: grid; gap: 2px; padding: 14px 16px; border-radius: 14px; background: #fff; border: 1px solid #D9DFFF; }
 .ads__prices b { font-size: 1.7rem; line-height: 1.1; letter-spacing: -.03em; }
 .ads__prices span { font-size: .85rem; line-height: 1.35; color: var(--ink-2); }
+.ads--stock { background: linear-gradient(135deg, #F3EFFF 0%, #EDF3FF 100%); border-color: #E0D9FF; }
+.ads--stock .ads__icon svg { background: #6B4EFF; box-shadow: 0 12px 24px -12px rgba(107, 78, 255, .7); }
+.ads--stock .ads__label { color: #6B4EFF; }
+.ads--stock .ads__prices p { border-color: #E0D9FF; }
 
 .checks { list-style: none; padding: 0; display: grid; gap: 10px; }
 .checks li { display: flex; gap: 12px; align-items: flex-start; }
