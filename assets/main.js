@@ -164,6 +164,7 @@
         var done = form.querySelector('.cform__done');
         form.classList.add('is-sent');
         done.hidden = false;
+        if (window.siteTrack) window.siteTrack('lead');
         done.focus();
       })
       .catch(function (err) {
@@ -249,7 +250,6 @@
       url.textContent = slug;
       if (card) {
         desk.alt = card.dataset.name.replace(/[«»]/g, '') + ', ' + card.dataset.type.toLowerCase() + ': η σελίδα σε υπολογιστή';
-        browser.setAttribute('aria-label', 'Δείτε ολόκληρο το δείγμα ' + card.dataset.name);
         caption.textContent = card.dataset.type + ' ' + card.dataset.name;
       }
       return Promise.all([decoded(desk), decoded(mob)]);
