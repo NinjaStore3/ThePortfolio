@@ -304,7 +304,7 @@
 (function () {
   if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var items = Array.prototype.slice.call(document.querySelectorAll(
-    '.section-head, .works__grid > li, .how__steps > li, .plans__grid > *, .faq details, .contact__intro, .cform'
+    '.section-head, .works__grid > li, .how__steps > li, .plans__grid > *, .faq details, .about__text, .about__values > li, .contact__intro, .cform'
   )).filter(function (el) { return el.getBoundingClientRect().top > window.innerHeight; });
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
