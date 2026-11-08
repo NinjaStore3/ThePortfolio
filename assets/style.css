@@ -81,8 +81,8 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.03em; font-weight: 700; }
   .top__bar--simple .top__phone span { display: inline; }
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .top__phone { width: 40px; padding: 0; }
-  .top__phone span { display: none; }
+  .top__bar:not(.top__bar--simple) .top__phone { width: 40px; padding: 0; }
+  .top__bar:not(.top__bar--simple) .top__phone span { display: none; }
   .top .top__nav a { padding: 8px 14px; }
 }
 .top__end > * { flex-shrink: 0; }
