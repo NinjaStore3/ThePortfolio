@@ -437,7 +437,7 @@ section[id] { scroll-margin-top: 88px; }
   .incl { grid-template-columns: 1fr 1fr; }
   .incl__head { align-self: center; }
 
-  .contact__buttons { grid-template-columns: 1fr 1fr; }
+  .contact__buttons { max-width: 420px; }
   .hero { margin: 12px 14px 0; padding: 64px 32px 0; border-radius: 34px; }
   .stage { margin-bottom: -110px; }
   .stage__chips { flex-wrap: wrap; justify-content: center; overflow: visible; max-width: 720px; margin: 0 auto; padding: 0; -webkit-mask-image: none; mask-image: none; }

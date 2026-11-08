@@ -9,14 +9,13 @@
     ga4: '',         // Google Analytics 4 measurement ID, e.g. 'G-ABC123XYZ9' (optional)
     conversions: {   // Google Ads conversion labels (Goals → Conversions → tag setup)
       lead: '',      // the interest form was sent
-      call: '',      // tap on the phone number
-      viber: ''      // tap on Viber
+      call: ''       // tap on the phone number
     }
   };
 
   var KEY = 'istoselidakias-consent';
   var ids = [CONFIG.googleAds, CONFIG.ga4].filter(Boolean);
-  var GA_EVENTS = { lead: 'generate_lead', call: 'click_call', viber: 'click_viber' };
+  var GA_EVENTS = { lead: 'generate_lead', call: 'click_call' };
   var loaded = false;
 
   window.dataLayer = window.dataLayer || [];
@@ -50,8 +49,7 @@
   };
 
   document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="viber:"]');
-    if (a) window.siteTrack(a.getAttribute('href').indexOf('tel:') === 0 ? 'call' : 'viber');
+    if (e.target.closest && e.target.closest('a[href^="tel:"]')) window.siteTrack('call');
   });
 
   if (!ids.length) return;

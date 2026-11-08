@@ -58,7 +58,7 @@ The script also writes `-thumb` versions (top of the page) for the portfolio car
 
 ## Google Ads / Analytics
 
-`assets/tags.js` holds the Google tag IDs (`googleAds`, `ga4`) and the Google Ads conversion labels (`lead` = form sent, `call` = tap on the phone number, `viber` = tap on Viber). While they are empty nothing loads and no cookie banner is shown. Once an ID is filled in:
+`assets/tags.js` holds the Google tag IDs (`googleAds`, `ga4`) and the Google Ads conversion labels (`lead` = form sent, `call` = tap on the phone number). While they are empty nothing loads and no cookie banner is shown. Once an ID is filled in:
 
 - a cookie banner asks for consent (Αποδοχή / Απόρριψη, same weight) and the choice is stored in `localStorage`;
 - the Google tag loads only after «Αποδοχή» (Consent Mode v2 set to granted);
