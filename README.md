@@ -16,6 +16,7 @@ Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek
 │       index.html, style.css, logo.svg, fonts/, img/
 ├─ scripts/screenshots.mjs  regenerates assets/shots with Playwright
 ├─ scripts/bust-cache.mjs   adds ?v=<hash> to CSS/JS links (npm run bust)
+├─ scripts/og-image.mjs     renders assets/og-image.jpg, the link preview image
 ├─ _headers, robots.txt     Cloudflare Pages (robots.txt points to sitemap.xml)
 ├─ sitemap.xml              portfolio page only (demos are noindex)
 └─ PHOTOS.md                photo sources (Unsplash License)

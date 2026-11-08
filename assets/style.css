@@ -179,7 +179,7 @@ section[id] { scroll-margin-top: 88px; }
 .marquee__track { display: flex; width: max-content; }
 .marquee span { display: flex; align-items: center; gap: 26px; padding-right: 26px; font-size: clamp(1.4rem, 3.6vw, 2.5rem); font-weight: 600; letter-spacing: -.03em; white-space: nowrap; }
 .marquee span::after { content: ""; width: .32em; height: .32em; border-radius: 50%; background: var(--accent); }
-@media (prefers-reduced-motion: no-preference) { .marquee__track { animation: marquee 48s linear infinite; } }
+@media (prefers-reduced-motion: no-preference) { .marquee__track { animation: marquee 70s linear infinite; } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* scroll reveal (main.js adds .reveal only to elements below the fold) */
