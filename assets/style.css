@@ -148,14 +148,22 @@ section[id] { scroll-margin-top: 88px; }
 }
 
 /* hero: dark stage with a live showcase of the demos */
-.hero { position: relative; isolation: isolate; margin: 10px 8px 0; padding: 44px 16px 0; border-radius: 28px; background: #0C0C10; color: #fff; text-align: center; }
+.hero { position: relative; isolation: isolate; margin: 10px 8px 0; padding: 44px 16px 0; border-radius: 28px; background: #07080F; color: #fff; text-align: center; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: .09; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px); background-size: 44px 44px; -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 0%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 70% 65% at 50% 0%, #000 20%, transparent 75%); }
 .hero__glow { position: absolute; inset: 0; z-index: -2; border-radius: inherit; overflow: hidden; pointer-events: none; }
-.hero__glow::before, .hero__glow::after { content: ""; position: absolute; width: 90vw; max-width: 900px; aspect-ratio: 1; border-radius: 50%; }
-.hero__glow::before { top: -38%; left: -22%; background: radial-gradient(closest-side, rgba(59, 91, 253, .55), transparent); animation: glow-a 16s ease-in-out infinite alternate; }
-.hero__glow::after { top: 4%; right: -30%; background: radial-gradient(closest-side, rgba(139, 92, 246, .32), transparent); animation: glow-b 20s ease-in-out infinite alternate; }
-@keyframes glow-a { to { transform: translate(18%, 12%) scale(1.1); } }
-@keyframes glow-b { to { transform: translate(-16%, 10%) scale(.92); } }
+.hero__glow::before, .hero__glow::after, .hero__glow i { content: ""; position: absolute; width: 90vw; max-width: 900px; aspect-ratio: 1; border-radius: 50%; mix-blend-mode: screen; }
+.hero__glow::before { top: -38%; left: -22%; background: radial-gradient(closest-side, rgba(59, 91, 253, .6), transparent); animation: glow-a 17s ease-in-out infinite alternate; }
+.hero__glow::after { top: 4%; right: -30%; background: radial-gradient(closest-side, rgba(139, 92, 246, .4), transparent); animation: glow-b 21s ease-in-out infinite alternate; }
+.hero__glow i { bottom: -55%; left: 28%; max-width: 760px; background: radial-gradient(closest-side, rgba(34, 211, 238, .2), transparent); animation: glow-c 25s ease-in-out infinite alternate; }
+@keyframes glow-a { 50% { transform: translate(26%, 6%) scale(1.15); } to { transform: translate(8%, 22%) scale(.95); } }
+@keyframes glow-b { 50% { transform: translate(-22%, 18%) scale(.9); } to { transform: translate(-6%, -10%) scale(1.12); } }
+@keyframes glow-c { 50% { transform: translate(-30%, -18%) scale(1.2); } to { transform: translate(20%, -8%) scale(.9); } }
+/* light that follows the pointer (drifts on its own on touch screens), and the grid lights up around it */
+.hero__fx { position: absolute; inset: 0; z-index: -1; border-radius: inherit; overflow: hidden; pointer-events: none; }
+.hero__spot { position: absolute; left: 0; top: 0; width: 680px; height: 680px; margin: -340px 0 0 -340px; border-radius: 50%; background: radial-gradient(closest-side, rgba(116, 140, 255, .3), rgba(139, 92, 246, .12) 50%, transparent); transform: translate3d(70%, 30%, 0); will-change: transform; }
+.hero__lit { position: absolute; inset: 0; background-image: linear-gradient(rgba(150, 168, 255, .42) 1px, transparent 1px), linear-gradient(90deg, rgba(150, 168, 255, .42) 1px, transparent 1px); background-size: 44px 44px; -webkit-mask-image: radial-gradient(circle 230px at var(--mx, -999px) var(--my, -999px), #000, transparent 72%); mask-image: radial-gradient(circle 230px at var(--mx, -999px) var(--my, -999px), #000, transparent 72%); }
+@media (prefers-reduced-motion: reduce) { .hero__glow::before, .hero__glow::after, .hero__glow i { animation: none; } }
 .hero h1 { font-size: clamp(2.4rem, 10vw, 4.4rem); line-height: 1.02; letter-spacing: -.045em; max-width: 11.5em; margin: 0 auto 18px; }
 .hero h1 em { font-style: normal; }
 .hero h1 em .w { background: linear-gradient(100deg, #A9B8FF 0%, #5E7BFF 55%, #B49BFF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .06em; }
@@ -182,8 +190,8 @@ section[id] { scroll-margin-top: 88px; }
 .chip:hover { border-color: rgba(255, 255, 255, .35); color: #fff; }
 .chip.is-on { background: #fff; border-color: #fff; color: var(--ink); }
 .chip i { position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; }
-.stage__screens { position: relative; transition: opacity .25s, transform .25s; }
-.stage__screens.is-switching { opacity: 0; transform: scale(.985); }
+.stage__screens { position: relative; transform: perspective(1600px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: opacity .25s; }
+.stage__screens.is-switching { opacity: 0; }
 .stage__browser { display: block; width: 100%; text-align: left; border-radius: 14px; overflow: hidden; background: #fff; cursor: zoom-in; box-shadow: 0 0 0 1px rgba(255, 255, 255, .1), 0 40px 80px -36px rgba(0, 0, 0, .8), 0 0 140px -30px rgba(59, 91, 253, .45); }
 .stage__bar { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; background: #F3F2EF; border-bottom: 1px solid #E4E1DA; }
 .stage__bar i { width: 10px; height: 10px; border-radius: 50%; flex: none; background: #FF5F57; }
