@@ -1,6 +1,6 @@
 # ThePortfolio
 
-Portfolio site (`/index.html`) with 10 one-page demo websites for local businesses in Athens (`/demos/`).
+Portfolio site (`/index.html`) with 10 one-page demo websites for businesses (`/demos/`). Istoselidakias works with businesses all over Greece.
 Plain HTML + CSS, a few lines of vanilla JS, no build step. All copy is in Greek and lives in the HTML.
 
 ```
@@ -68,8 +68,8 @@ Run `npm run bust` after editing it.
 
 ## SEO
 
-- `<title>`/description target «κατασκευή ιστοσελίδων / e-shop Αθήνα»; the share preview (`og:title`) is «Istoselidakias – Κατασκευή ιστοσελίδων & διαφήμιση».
-- JSON-LD `@graph`: `WebSite`, `ProfessionalService` (phone, Athens, offers with prices) and `FAQPage` (generated from the FAQ text; keep them in sync when the FAQ changes).
+- `<title>`/description target «κατασκευή ιστοσελίδων / e-shop» for all of Greece (no single city); the share preview (`og:title`) is «Istoselidakias – Κατασκευή ιστοσελίδων & διαφήμιση».
+- JSON-LD `@graph`: `WebSite`, `ProfessionalService` (phone, area served: Greece, offers with prices) and `FAQPage` (generated from the FAQ text; keep them in sync when the FAQ changes).
 - `sitemap.xml` lists the home page and the privacy policy; demos are `noindex`.
 - `_headers` adds `X-Robots-Tag: noindex` on `*.pages.dev`, security headers and long caching for the versioned CSS/JS and fonts.
 - `404.html` (noindex) stops Cloudflare Pages from serving the home page for unknown URLs.
