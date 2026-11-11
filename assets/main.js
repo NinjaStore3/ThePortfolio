@@ -432,3 +432,57 @@
   }, { threshold: .4 });
   io.observe(box);
 })();
+
+// «Πώς δουλεύουμε»: a line draws itself through the three steps as you scroll
+// (across on wide screens, down the left side on phones) and each step lights up when reached.
+(function () {
+  var flow = document.querySelector('.how__flow');
+  if (!flow) return;
+  var line = flow.querySelector('.how__line');
+  var fill = line.querySelector('i');
+  var items = Array.prototype.slice.call(flow.querySelectorAll('.how__steps > li'));
+  var badges = items.map(function (li) { return li.querySelector('.how__n'); });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pts = [], vertical = false, len = 0, queued = false;
+
+  function measure() {
+    pts = badges.map(function (b) {
+      var li = b.parentNode;
+      return { x: li.offsetLeft + b.offsetLeft + b.offsetWidth / 2, y: li.offsetTop + b.offsetTop + b.offsetHeight / 2 };
+    });
+    if (pts.length < 2) return;
+    vertical = Math.abs(pts[0].y - pts[1].y) > 4;
+    var a = pts[0], z = pts[pts.length - 1];
+    len = vertical ? z.y - a.y : z.x - a.x;
+    line.classList.toggle('is-vertical', vertical);
+    line.style.left = a.x + 'px';
+    line.style.top = a.y + 'px';
+    line.style.width = vertical ? '' : len + 'px';
+    line.style.height = vertical ? len + 'px' : '';
+    update();
+  }
+
+  function update() {
+    queued = false;
+    if (!pts.length) return;
+    var vh = window.innerHeight;
+    var startY = flow.getBoundingClientRect().top + pts[0].y;
+    var p = reduce ? 1 : vertical ? (vh * .62 - startY) / len : (vh * .78 - startY) / (vh * .32);
+    p = Math.max(0, Math.min(1, p));
+    var drawn = p * len;
+    fill.style[vertical ? 'height' : 'width'] = drawn.toFixed(1) + 'px';
+    line.classList.toggle('is-done', p >= 1);
+    items.forEach(function (li, i) {
+      var at = vertical ? pts[i].y - pts[0].y : pts[i].x - pts[0].x;
+      li.classList.toggle('is-lit', drawn >= at - 2);
+    });
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!queued) { queued = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', measure);
+  if ('ResizeObserver' in window) new ResizeObserver(measure).observe(flow);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  measure();
+})();
