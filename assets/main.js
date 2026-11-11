@@ -304,7 +304,7 @@
 (function () {
   if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var items = Array.prototype.slice.call(document.querySelectorAll(
-    '.section-head, .works__grid > li, .how__steps > li, .plans__grid > *, .faq details, .about__text, .about__values > li, .contact__intro, .cform'
+    '.section-head, .works__grid > li, .ba__wrap, .how__steps > li, .scores, .plans__grid > *, .faq details, .about__text, .about__values > li, .contact__intro, .cform'
   )).filter(function (el) { return el.getBoundingClientRect().top > window.innerHeight; });
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -377,4 +377,58 @@
     new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; update(); }).observe(hero);
   }
   update();
+})();
+
+// Before / after slider: drag (or use the arrow keys) to compare the old site with the new one.
+// The first time it scrolls into view it nudges left and right to show it can be dragged.
+(function () {
+  var frame = document.querySelector('.ba__frame');
+  if (!frame) return;
+  var range = frame.querySelector('.ba__range');
+  var touched = false;
+  function set(v) { frame.style.setProperty('--pos', v + '%'); }
+  range.addEventListener('input', function () { touched = true; set(range.value); });
+  range.addEventListener('pointerdown', function () { touched = true; frame.classList.add('is-dragging'); });
+  window.addEventListener('pointerup', function () { frame.classList.remove('is-dragging'); });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    var keys = [[0, 50], [700, 28], [1500, 72], [2200, 50]], start = null;
+    function step(now) {
+      if (touched) return;
+      if (start === null) start = now;
+      var t = now - start + 400, i = 1;
+      while (i < keys.length - 1 && t > keys[i][0]) i++;
+      var a = keys[i - 1], b = keys[i], k = Math.min(1, Math.max(0, (t - a[0]) / (b[0] - a[0])));
+      k = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      var v = a[1] + (b[1] - a[1]) * k;
+      set(v.toFixed(1)); range.value = Math.round(v);
+      if (t < keys[keys.length - 1][0]) requestAnimationFrame(step);
+    }
+    setTimeout(function () { requestAnimationFrame(step); }, 300);
+  }, { threshold: .5 });
+  io.observe(frame);
+})();
+
+// Lighthouse rings fill up and the numbers count up when they scroll into view.
+(function () {
+  var box = document.querySelector('.scores');
+  if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var nums = Array.prototype.slice.call(box.querySelectorAll('b[data-to]'));
+  box.classList.add('is-ready');
+  nums.forEach(function (b) { b.textContent = '0'; });
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    requestAnimationFrame(function () { box.classList.add('is-on'); });
+    var start = performance.now();
+    (function tick(now) {
+      var k = Math.min(1, (now - start) / 1600);
+      var e = 1 - Math.pow(1 - k, 3);
+      nums.forEach(function (b) { b.textContent = Math.round(e * Number(b.dataset.to)); });
+      if (k < 1) requestAnimationFrame(tick);
+    })(start);
+  }, { threshold: .4 });
+  io.observe(box);
 })();
