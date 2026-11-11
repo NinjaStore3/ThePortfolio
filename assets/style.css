@@ -438,10 +438,11 @@ section[id] { scroll-margin-top: 88px; }
 
 /* featured plan: a light runs around the border */
 @property --ang { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-.plan--featured { position: relative; box-shadow: 0 30px 60px -30px rgba(59, 91, 253, .55); }
-.plan--featured::before, .plan--featured::after { content: ""; position: absolute; inset: -2px; border-radius: calc(var(--radius) + 2px); pointer-events: none; background: conic-gradient(from var(--ang), transparent 0 6%, #3B5BFD 16%, #A9B8FF 22%, #E0E7FF 25%, #8B5CF6 30%, transparent 40% 56%, #3B5BFD 66%, #A9B8FF 72%, #E0E7FF 75%, #8B5CF6 80%, transparent 90%); }
-.plan--featured::before { padding: 3px; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
-.plan--featured::after { z-index: -1; inset: -6px; filter: blur(18px); opacity: .75; }
+.plan--featured { position: relative; isolation: isolate; background: transparent; border-color: transparent; box-shadow: 0 30px 60px -30px rgba(59, 91, 253, .55); }
+.plan--featured::before, .plan--featured::after { content: ""; position: absolute; pointer-events: none; }
+/* the card itself (dark fill) with a 3px border that carries the moving lights; isolation keeps the glow behind it in every state */
+.plan--featured::before { z-index: -1; inset: -2px; border-radius: calc(var(--radius) + 2px); border: 3px solid transparent; background: linear-gradient(var(--ink), var(--ink)) padding-box, conic-gradient(from var(--ang), transparent 0 6%, #3B5BFD 16%, #A9B8FF 22%, #E0E7FF 25%, #8B5CF6 30%, transparent 40% 56%, #3B5BFD 66%, #A9B8FF 72%, #E0E7FF 75%, #8B5CF6 80%, transparent 90%) border-box; }
+.plan--featured::after { z-index: -2; inset: -10px; border-radius: calc(var(--radius) + 10px); background: conic-gradient(from var(--ang), transparent 0 6%, #3B5BFD 16%, #A9B8FF 22%, #E0E7FF 25%, #8B5CF6 30%, transparent 40% 56%, #3B5BFD 66%, #A9B8FF 72%, #E0E7FF 75%, #8B5CF6 80%, transparent 90%); filter: blur(22px); opacity: .9; }
 @media (prefers-reduced-motion: no-preference) { .plan--featured::before, .plan--featured::after { animation: border-spin 4s linear infinite; } }
 @keyframes border-spin { to { --ang: 360deg; } }
 
