@@ -257,7 +257,23 @@ section[id] { scroll-margin-top: 88px; }
 .how { padding: 64px 16px; max-width: var(--maxw); margin: 0 auto; }
 .how__steps { list-style: none; padding: 0; display: grid; gap: 14px; counter-reset: s; }
 .how__steps li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; position: relative; }
-.how__n { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); font-weight: 700; margin-bottom: 18px; }
+.how__n { position: relative; z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); font-weight: 700; margin-bottom: 18px; transition: background .45s, color .45s, box-shadow .45s, transform .45s; }
+/* a line draws itself through the steps while scrolling; each step lights up when it is reached */
+.how__flow { position: relative; }
+.how__line { position: absolute; z-index: 1; height: 2px; margin-top: -1px; border-radius: 2px; background: var(--line); pointer-events: none; }
+.how__line.is-vertical { width: 2px; margin: 0 0 0 -1px; }
+.how__line i { position: absolute; left: 0; top: 0; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), #8B5CF6); box-shadow: 0 0 12px rgba(59, 91, 253, .5); }
+.how__line.is-vertical i { width: 100%; height: 0; background: linear-gradient(180deg, var(--accent), #8B5CF6); }
+.how__line i::after { content: ""; position: absolute; right: -6px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px var(--accent), 0 0 16px rgba(59, 91, 253, .9); }
+.how__line.is-vertical i::after { right: auto; top: auto; left: 50%; bottom: -6px; margin: 0 0 0 -6px; }
+.how__line.is-done i::after { opacity: 0; transition: opacity .4s; }
+.how__steps li::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; border: 1.5px solid #B9C6FF; box-shadow: 0 22px 44px -32px rgba(59, 91, 253, .7); opacity: 0; transition: opacity .5s; pointer-events: none; }
+.how__steps li.is-lit::after { opacity: 1; }
+.how__steps li.is-lit .how__n { background: var(--accent); color: #fff; box-shadow: 0 0 0 6px var(--accent-soft), 0 10px 22px -8px rgba(59, 91, 253, .8); transform: scale(1.06); }
+@media (max-width: 759px) {
+  .how__steps li { padding-left: 78px; }
+  .how__n { position: absolute; left: 20px; top: 24px; margin: 0; }
+}
 .how__steps h3 { font-size: 1.4rem; margin-bottom: 8px; }
 .how__steps p { color: var(--ink-2); }
 
