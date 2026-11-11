@@ -511,3 +511,56 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   measure();
 })();
+
+// «Δείτε πώς χτίζεται ένα site»: while the section is pinned, scrolling walks through five steps:
+// wireframe → colours and fonts → photos and text → call / map / hours → phone version.
+(function () {
+  var sec = document.querySelector('.build');
+  if (!sec || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  sec.classList.add('build--scroll');
+  var steps = Array.prototype.slice.call(sec.querySelectorAll('.build__steps li'));
+  var fill = sec.querySelector('.build__bar i');
+  var site = sec.querySelector('.bs');
+  var call = sec.querySelector('.bs__call');
+  var cursor = sec.querySelector('.bs__cursor');
+  var TH = [0.02, 0.2, 0.4, 0.6, 0.8];
+  var current = -1, queued = false, tapTimer = null;
+
+  function tap() {
+    if (cursor.classList.contains('is-moving')) return;
+    var a = site.getBoundingClientRect(), b = call.getBoundingClientRect();
+    cursor.style.setProperty('--cx', ((b.left + b.width * .55 - a.left) / a.width * 100).toFixed(2) + '%');
+    cursor.style.setProperty('--cy', ((b.top + b.height * .45 - a.top) / a.height * 100).toFixed(2) + '%');
+    cursor.classList.add('is-moving');
+    tapTimer = setTimeout(function () { sec.classList.add('is-tapped'); }, 850);
+  }
+  function untap() {
+    clearTimeout(tapTimer);
+    cursor.classList.remove('is-moving');
+    sec.classList.remove('is-tapped');
+  }
+
+  function update() {
+    queued = false;
+    var r = sec.getBoundingClientRect();
+    var total = r.height - window.innerHeight;
+    var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
+    fill.style.transform = 'scaleX(' + p.toFixed(3) + ')';
+    var s = 0;
+    TH.forEach(function (t, i) { if (p >= t) s = i + 1; });
+    if (s === current) return;
+    current = s;
+    for (var i = 1; i <= 5; i++) sec.classList.toggle('is-s' + i, s >= i);
+    steps.forEach(function (li, i) {
+      li.classList.toggle('is-on', i + 1 === Math.max(1, s));
+      li.classList.toggle('is-done', i + 1 < s);
+    });
+    if (s === 4) tap(); else if (s < 4) untap();
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!queued) { queued = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
