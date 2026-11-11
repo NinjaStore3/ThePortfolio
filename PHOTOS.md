@@ -38,3 +38,4 @@ They were downloaded from the Unsplash image CDN, resized and converted to WebP.
 | `demos/10-groomer/img/pug.webp` | https://images.unsplash.com/photo-1517849845537-4d257902454a |  |
 | `demos/10-groomer/img/samoyed.webp` | https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993 |  |
 | `demos/10-groomer/img/schnauzer.webp` | https://images.unsplash.com/photo-1625316708582-7c38734be31d |  |
+| `assets/build/photo.webp` | https://images.unsplash.com/photo-1618221195710-dd6b41faaea6 | crop of the dermatologist demo «lounge» photo, for the «Δείτε πώς χτίζεται» mini site |
