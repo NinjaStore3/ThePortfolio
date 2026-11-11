@@ -282,6 +282,11 @@ section[id] { scroll-margin-top: 88px; }
 .plans__grid { display: grid; gap: 14px; }
 .plan { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 .plan__label { font-weight: 600; color: var(--ink-2); }
+/* phones and tablets: «Πλήρες» on its own line and the subtitle under it, so no word is left alone on a line */
+@media (max-width: 1023px) {
+  .plan__sep { display: none; }
+  .plan__sub { display: block; font-size: .94em; }
+}
 .plan__price { font-size: 1.1rem; color: var(--ink-2); margin-top: 8px; }
 .plan__price b { font-size: 3.4rem; letter-spacing: -.04em; color: var(--ink); line-height: 1; margin-right: 4px; }
 .plan__monthly { font-size: 1.1rem; color: var(--ink-2); }
