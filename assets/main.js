@@ -512,55 +512,64 @@
   measure();
 })();
 
-// «Δείτε πώς χτίζεται ένα site»: while the section is pinned, scrolling walks through five steps:
-// wireframe → colours and fonts → photos and text → call / map / hours → phone version.
+// «Δείτε πώς χτίζεται ένα site»: while the section is on screen, a sample site builds itself in
+// five steps and starts over (wireframe → colours and fonts → photos and text → call / map / hours
+// → phone version). It pauses when the section scrolls away.
 (function () {
   var sec = document.querySelector('.build');
-  if (!sec || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  sec.classList.add('build--scroll');
+  if (!sec || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  sec.classList.add('build--play');
   var steps = Array.prototype.slice.call(sec.querySelectorAll('.build__steps li'));
   var fill = sec.querySelector('.build__bar i');
   var site = sec.querySelector('.bs');
   var call = sec.querySelector('.bs__call');
   var cursor = sec.querySelector('.bs__cursor');
-  var TH = [0.02, 0.2, 0.4, 0.6, 0.8];
-  var current = -1, queued = false, tapTimer = null;
+  // how long each step stays on screen (ms); index 0 is the empty browser before step 1
+  var HOLD = [500, 1900, 2000, 2000, 2900, 4200];
+  var current = 0, timer = null, tapTimer = null, playing = false;
 
   function tap() {
-    if (cursor.classList.contains('is-moving')) return;
     var a = site.getBoundingClientRect(), b = call.getBoundingClientRect();
     cursor.style.setProperty('--cx', ((b.left + b.width * .55 - a.left) / a.width * 100).toFixed(2) + '%');
     cursor.style.setProperty('--cy', ((b.top + b.height * .45 - a.top) / a.height * 100).toFixed(2) + '%');
     cursor.classList.add('is-moving');
     tapTimer = setTimeout(function () { sec.classList.add('is-tapped'); }, 850);
   }
-  function untap() {
-    clearTimeout(tapTimer);
-    cursor.classList.remove('is-moving');
-    sec.classList.remove('is-tapped');
-  }
 
-  function update() {
-    queued = false;
-    var r = sec.getBoundingClientRect();
-    var total = r.height - window.innerHeight;
-    var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
-    fill.style.transform = 'scaleX(' + p.toFixed(3) + ')';
-    var s = 0;
-    TH.forEach(function (t, i) { if (p >= t) s = i + 1; });
-    if (s === current) return;
+  function show(s) {
     current = s;
     for (var i = 1; i <= 5; i++) sec.classList.toggle('is-s' + i, s >= i);
     steps.forEach(function (li, i) {
       li.classList.toggle('is-on', i + 1 === Math.max(1, s));
       li.classList.toggle('is-done', i + 1 < s);
     });
-    if (s === 4) tap(); else if (s < 4) untap();
+    fill.style.transform = 'scaleX(' + s / 5 + ')';
+    clearTimeout(tapTimer);
+    if (s === 4) tap();
+    else if (s < 4) { cursor.classList.remove('is-moving'); sec.classList.remove('is-tapped'); }
   }
 
-  window.addEventListener('scroll', function () {
-    if (!queued) { queued = true; requestAnimationFrame(update); }
-  }, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  function next() {
+    if (current < 5) {
+      sec.classList.remove('is-rewind'); // in case it was paused halfway through a rewind
+      show(current + 1);
+      timer = setTimeout(next, HOLD[current]);
+      return;
+    }
+    // fade the finished site out, reset it while hidden, then build it again
+    sec.classList.add('is-rewind');
+    timer = setTimeout(function () {
+      show(0);
+      timer = setTimeout(function () {
+        sec.classList.remove('is-rewind');
+        timer = setTimeout(next, HOLD[0]);
+      }, 1100);
+    }, 550);
+  }
+
+  new IntersectionObserver(function (entries) {
+    var visible = entries[0].isIntersecting;
+    if (visible && !playing) { playing = true; timer = setTimeout(next, current ? HOLD[current] : 300); }
+    else if (!visible && playing) { playing = false; clearTimeout(timer); }
+  }, { threshold: 0.4 }).observe(sec.querySelector('.build__scene'));
 })();
