@@ -299,6 +299,31 @@
   });
 })();
 
+// Samples: show the first 4; the «Δείτε άλλα» button brings in the rest with a staggered entrance.
+// Without JS every sample stays visible.
+(function () {
+  var grid = document.getElementById('works-grid');
+  var wrap = document.querySelector('.works__more');
+  if (!grid || !wrap) return;
+  var SHOW = 4;
+  var items = Array.prototype.slice.call(grid.children);
+  if (items.length <= SHOW) return;
+  var btn = wrap.querySelector('.more-btn');
+  wrap.querySelector('.more-btn__count').textContent = items.length - SHOW;
+  grid.classList.add('is-collapsed');
+  wrap.hidden = false;
+  btn.addEventListener('click', function () {
+    var extra = items.slice(SHOW);
+    extra.forEach(function (li, i) { li.classList.add('is-new'); li.style.setProperty('--d', (i * 90) + 'ms'); li.classList.remove('reveal'); });
+    grid.classList.remove('is-collapsed');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.classList.add('is-gone');
+    setTimeout(function () { wrap.hidden = true; }, 300);
+    var first = extra[0].querySelector('.work');
+    if (first) first.focus({ preventScroll: true });
+  });
+})();
+
 // Sections fade up as they scroll into view. Only elements that start below the
 // fold get hidden, so nothing visible on load ever disappears.
 (function () {
