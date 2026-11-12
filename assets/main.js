@@ -346,62 +346,31 @@
   });
 })();
 
-// Hero background: a soft light follows the pointer and the grid lights up around it;
-// the showcase tilts slightly towards the pointer. Without a mouse the light drifts on its own.
+// Hero showcase: with a mouse, the browser and phone tilt slightly towards the pointer.
 (function () {
   var hero = document.querySelector('.hero');
-  var spot = hero && hero.querySelector('.hero__spot');
-  if (!spot || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var screens = hero.querySelector('.stage__screens');
-  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  var w = 1, h = 1, cur = { x: 0, y: 0 }, target = { x: 0, y: 0 };
-  var pointer = false, visible = true, running = false, start = performance.now();
+  var screens = hero && hero.querySelector('.stage__screens');
+  if (!screens || window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var cur = { x: .5, y: .5 }, target = { x: .5, y: .5 }, running = false;
 
-  function measure() { var r = hero.getBoundingClientRect(); w = r.width; h = r.height; }
-  measure();
-  cur.x = target.x = w * .7; cur.y = target.y = h * .35;
-  window.addEventListener('resize', measure);
+  function frame() {
+    cur.x += (target.x - cur.x) * .08;
+    cur.y += (target.y - cur.y) * .08;
+    screens.style.setProperty('--rx', ((cur.y - .5) * -5).toFixed(2) + 'deg');
+    screens.style.setProperty('--ry', ((cur.x - .5) * 7).toFixed(2) + 'deg');
+    if (Math.abs(target.x - cur.x) + Math.abs(target.y - cur.y) > .002) requestAnimationFrame(frame);
+    else running = false;
+  }
+  function go() { if (!running) { running = true; requestAnimationFrame(frame); } }
 
-  if (fine) {
-    hero.addEventListener('pointermove', function (e) {
-      var r = hero.getBoundingClientRect();
-      target.x = e.clientX - r.left;
-      target.y = e.clientY - r.top;
-      pointer = true;
-    });
-    hero.addEventListener('pointerleave', function () { pointer = false; });
-  }
-
-  function frame(now) {
-    if (!running) return;
-    if (!pointer) {
-      var t = (now - start) / 1000;
-      target.x = w * (.55 + .32 * Math.sin(t * .21));
-      target.y = h * (.42 + .26 * Math.sin(t * .29 + 1.3));
-    }
-    cur.x += (target.x - cur.x) * .07;
-    cur.y += (target.y - cur.y) * .07;
-    spot.style.transform = 'translate3d(' + cur.x.toFixed(1) + 'px,' + cur.y.toFixed(1) + 'px,0)';
-    if (fine) {
-      hero.style.setProperty('--mx', cur.x.toFixed(0) + 'px');
-      hero.style.setProperty('--my', cur.y.toFixed(0) + 'px');
-      if (screens) {
-        screens.style.setProperty('--rx', ((cur.y / h - .5) * -5).toFixed(2) + 'deg');
-        screens.style.setProperty('--ry', ((cur.x / w - .5) * 7).toFixed(2) + 'deg');
-      }
-    }
-    requestAnimationFrame(frame);
-  }
-  function update() {
-    var should = visible && !document.hidden;
-    if (should && !running) { running = true; requestAnimationFrame(frame); }
-    else if (!should) running = false;
-  }
-  document.addEventListener('visibilitychange', update);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; update(); }).observe(hero);
-  }
-  update();
+  hero.addEventListener('pointermove', function (e) {
+    var r = hero.getBoundingClientRect();
+    target.x = (e.clientX - r.left) / r.width;
+    target.y = (e.clientY - r.top) / r.height;
+    go();
+  });
+  hero.addEventListener('pointerleave', function () { target.x = target.y = .5; go(); });
 })();
 
 // Before / after slider: drag (or use the arrow keys) to compare the old site with the new one.
