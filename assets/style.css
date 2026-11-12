@@ -159,7 +159,7 @@ section[id] { scroll-margin-top: 88px; }
 .doodle path { stroke-dasharray: 1; }
 .doodle--spark { width: 40px; height: 40px; left: -4px; top: -36px; stroke: var(--accent); transform: rotate(-24deg); }
 .doodle--marks { width: 40px; height: 40px; right: -14px; top: -34px; stroke: var(--accent); }
-.doodle--arrow { display: none; width: 66px; height: 48px; left: -72px; top: 60%; stroke: var(--ink); stroke-width: 2.6; }
+.doodle--arrow { display: none; width: 66px; height: 48px; left: -72px; top: 64%; stroke: var(--ink); stroke-width: 2.6; }
 .toasts { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .toast { position: absolute; display: grid; grid-template-columns: auto auto; column-gap: 9px; align-items: center; padding: 7px 12px 7px 7px; border-radius: 12px; background: #fff; text-align: left; white-space: nowrap; opacity: 0; box-shadow: 0 0 0 1px rgba(17, 17, 17, .06), 0 14px 28px -12px rgba(70, 50, 25, .4); }
 .toast i { grid-row: span 2; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: var(--accent-soft); color: var(--accent); }
