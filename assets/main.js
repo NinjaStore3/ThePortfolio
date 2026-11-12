@@ -346,6 +346,15 @@
   });
 })();
 
+// Pause the hero's looping animations (notifications, doodles) while it is off screen.
+(function () {
+  var hero = document.querySelector('.hero');
+  if (!hero || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entries) {
+    hero.classList.toggle('is-off', !entries[0].isIntersecting);
+  }).observe(hero);
+})();
+
 // Hero showcase: with a mouse, the browser and phone tilt slightly towards the pointer.
 (function () {
   var hero = document.querySelector('.hero');
