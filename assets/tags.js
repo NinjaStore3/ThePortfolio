@@ -5,11 +5,11 @@
 // After editing this file run `npm run bust` so browsers fetch the new version.
 (function () {
   var CONFIG = {
-    googleAds: '',   // Google Ads tag ID, e.g. 'AW-123456789'
+    googleAds: 'AW-18576739572',   // Google Ads tag ID
     ga4: '',         // Google Analytics 4 measurement ID, e.g. 'G-ABC123XYZ9' (optional)
     conversions: {   // Google Ads conversion labels (Goals → Conversions → tag setup)
-      lead: '',      // the interest form was sent
-      call: ''       // tap on the phone number
+      lead: 'mJKcCPzb_LgdEPSZippF',   // «Φόρμα ενδιαφέροντος»: the interest form was sent
+      call: 'EC0LCP_b_LgdEPSZippF'    // «Πάτημα στο τηλέφωνο»: tap on the phone number
     }
   };
 
