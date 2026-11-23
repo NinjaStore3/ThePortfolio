@@ -551,3 +551,113 @@
     else if (!visible && playing) { playing = false; clearTimeout(timer); }
   }, { threshold: 0.4 }).observe(sec.querySelector('.build__scene'));
 })();
+
+// «Και κάτι παραπάνω»: three tabs (social, video, AI). In the social tab, picking 8 / 12 / 20 posts fills
+// the month's calendar; in the AI tab a booking chat with the digital front desk plays on a loop.
+// Without JS all three panels stay visible, one under the other.
+(function () {
+  var sec = document.querySelector('.svc');
+  if (!sec) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tabs = Array.prototype.slice.call(sec.querySelectorAll('[role="tab"]'));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  var pill = sec.querySelector('.svc__pill');
+  var current = 0, inView = false;
+
+  // --- social calendar ---
+  var cal = sec.querySelector('.cal');
+  var days = cal ? Array.prototype.slice.call(cal.querySelectorAll('.p')) : [];
+  var count = cal && cal.querySelector('.cal__count');
+  var tiers = Array.prototype.slice.call(sec.querySelectorAll('[data-posts]'));
+  var REELS = { 8: 0, 12: 2, 20: 4 };
+  function setTier(n) {
+    var k = 0;
+    days.forEach(function (d) {
+      var on = +d.dataset.t <= n;
+      if (on !== d.classList.contains('is-on')) d.style.setProperty('--dl', (k++ * 30) + 'ms');
+      d.classList.toggle('is-on', on);
+    });
+    count.textContent = n + ' posts' + (REELS[n] ? ' · ' + REELS[n] + ' reels' : '');
+    tiers.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.posts === n)); });
+  }
+  tiers.forEach(function (b) { b.addEventListener('click', function () { setTier(+b.dataset.posts); }); });
+
+  // --- AI chat ---
+  var chat = sec.querySelector('.chat');
+  var msgs = chat ? Array.prototype.slice.call(chat.querySelectorAll('.msg')) : [];
+  var typing = chat && chat.querySelector('.typing');
+  // [what to show, how long to wait after it]: a number is a message, 't' the typing dots, 'end' the fade-out
+  var STEPS = [[0, 1000], ['t', 1300], [1, 1700], [2, 900], ['t', 1400], [3, 900], [4, 3800], ['end', 700]];
+  var step = 0, timer = null, playing = false;
+  function show(i) { msgs[i].classList.add('is-shown'); }
+  function run() {
+    var s = STEPS[step];
+    typing.classList.toggle('is-shown', s[0] === 't');
+    if (typeof s[0] === 'number') show(s[0]);
+    if (s[0] === 'end') chat.classList.add('is-fading');
+    timer = setTimeout(function () {
+      step = (step + 1) % STEPS.length;
+      if (step === 0) {
+        chat.classList.remove('is-fading');
+        msgs.forEach(function (m) { m.classList.remove('is-shown'); });
+      }
+      run();
+    }, s[1]);
+  }
+  function syncChat() {
+    if (!chat || reduce) return;
+    var should = inView && panels[current].contains(chat);
+    if (should && !playing) { playing = true; chat.classList.add('is-play'); timer = setTimeout(run, 400); }
+    else if (!should && playing) { playing = false; clearTimeout(timer); }
+  }
+
+  // --- tabs ---
+  function movePill() {
+    var t = tabs[current];
+    if (!t.offsetWidth) return;
+    pill.style.width = t.offsetWidth + 'px';
+    pill.style.transform = 'translateX(' + t.offsetLeft + 'px)';
+  }
+  function select(i, focus) {
+    current = i;
+    tabs.forEach(function (t, j) {
+      var on = j === i;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      panels[j].hidden = !on;
+    });
+    var p = panels[i];
+    p.classList.remove('is-entering');
+    void p.offsetWidth;
+    p.classList.add('is-entering');
+    if (focus) tabs[i].focus();
+    movePill();
+    syncChat();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { if (i !== current) select(i); });
+    t.addEventListener('keydown', function (e) {
+      var k = e.key, n = tabs.length, to = null;
+      if (k === 'ArrowRight') to = (current + 1) % n;
+      else if (k === 'ArrowLeft') to = (current - 1 + n) % n;
+      else if (k === 'Home') to = 0;
+      else if (k === 'End') to = n - 1;
+      if (to !== null) { e.preventDefault(); select(to, true); }
+    });
+  });
+
+  sec.classList.add('svc--js');
+  select(0);
+  panels[0].classList.remove('is-entering');
+  requestAnimationFrame(function () { pill.classList.add('is-ready'); });
+  window.addEventListener('resize', movePill);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(movePill);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      inView = entries[0].isIntersecting;
+      sec.classList.toggle('is-off', !inView);
+      syncChat();
+    }, { threshold: 0.15 }).observe(sec);
+  }
+})();
