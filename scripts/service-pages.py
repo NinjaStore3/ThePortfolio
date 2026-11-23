@@ -273,6 +273,7 @@ FOOTER = '''  <footer class="foot">
       <div class="foot__contact">
         <a href="tel:+302112186538">211 218 6538</a>
         <span>Σε όλη την Ελλάδα</span>
+        <div class="foot__social"><a href="https://www.instagram.com/istoselidakias.gr/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i-ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle class="dot" cx="17.4" cy="6.6" r="1.2"/></svg></a><a href="https://www.facebook.com/profile.php?id=61596532544969" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i-fb" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5H17V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.4H8v3.2h2.6v8z"/></svg></a></div>
       </div>
     </div>
     <div class="foot__bottom">
@@ -297,7 +298,8 @@ def page(p):
     ld = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'ProfessionalService', '@id': f'{SITE}/#business', 'name': 'Istoselidakias', 'url': f'{SITE}/',
          'telephone': '+30 211 218 6538', 'image': f'{SITE}/assets/og-image.jpg?v=4', 'priceRange': '90 € – 690 €',
-         'address': {'@type': 'PostalAddress', 'addressCountry': 'GR'}},
+         'address': {'@type': 'PostalAddress', 'addressCountry': 'GR'},
+         'sameAs': ['https://www.instagram.com/istoselidakias.gr/', 'https://www.facebook.com/profile.php?id=61596532544969']},
         {'@type': 'Service', '@id': f'{url}#service', 'name': text(p['crumb']) if p['slug'] != 'chatbot' else 'AI chatbot και ψηφιακή γραμματεία',
          'serviceType': p['service_type'], 'description': text(p['desc']), 'url': url,
          'provider': {'@id': f'{SITE}/#business'}, 'areaServed': {'@type': 'Country', 'name': 'Ελλάδα'},

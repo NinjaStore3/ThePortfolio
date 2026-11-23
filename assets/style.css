@@ -909,6 +909,16 @@ button.svc__row[aria-pressed="true"] em { color: var(--accent-dark); }
 .foot__nav a, .foot__contact a { color: var(--ink); font-weight: 500; }
 .foot__nav a:hover, .foot__contact a:hover { color: var(--accent); }
 .foot__contact { display: grid; gap: 8px; align-content: start; }
+/* Instagram / Facebook */
+.i-ig { fill: none !important; stroke: currentColor; stroke-width: 2; }
+.i-ig .dot { fill: currentColor; stroke: none; }
+.i-fb { fill: currentColor; }
+.foot__social { display: flex; gap: 10px; margin-top: 8px; }
+.foot__social a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #fff; border: 1px solid var(--line); color: var(--ink); transition: background .2s, border-color .2s, color .2s; }
+.foot__social a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.foot__social svg { width: 20px; height: 20px; }
+.contact__social { display: grid; gap: 12px; }
+.contact__social .cbtn span { font-size: 1rem; }
 .foot__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 20px; font-size: .88rem; }
 .foot__bottom p:last-child { display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .foot__bottom a, .foot__cookies { color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
