@@ -131,6 +131,10 @@
   var form = document.querySelector('.cform');
   if (!form) return;
 
+  // Links from the service pages arrive as /?paketo=…#epikoinonia and preselect that choice.
+  var wanted = new URLSearchParams(window.location.search).get('paketo');
+  if (wanted) form.querySelectorAll('input[name="Πακέτο"]').forEach(function (r) { if (r.value === wanted) r.checked = true; });
+
   // "Θέλω το Βασικό / Πλήρες" preselect the package in the form.
   document.querySelectorAll('[data-paketo]').forEach(function (a) {
     a.addEventListener('click', function () {
