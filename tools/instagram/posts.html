@@ -136,6 +136,37 @@ section.b1 .itile ~ .chips { right:90px; }
 .note { align-self:center; display:inline-flex; align-items:center; gap:10px; padding:12px 22px; border-radius:999px; background:#E2F5EA; color:#066B37; font-size:26px; font-weight:600; }
 .note svg { width:26px; height:26px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
 section.b1 .chat ~ .chips { top:1110px; right:60px; gap:12px; } section.b1 .chat ~ .chips .chip { padding:12px 22px; font-size:27px; }
+
+/* Facebook cover 1640×624: everything inside the centre 1100px (phones crop the sides; the profile photo covers the bottom left on desktop) */
+.cover { position:relative; width:1640px; height:624px; overflow:hidden; background:var(--paper); }
+.cover::before { content:""; position:absolute; width:900px; height:900px; right:150px; top:-330px; border-radius:50%; background:var(--sand); }
+.cover::after { content:""; position:absolute; width:520px; height:520px; left:-160px; bottom:-300px; border-radius:50%; background:var(--sand); }
+.cover > * { position:absolute; z-index:1; }
+.cv__text { left:300px; top:92px; width:560px; }
+.cv__logo { height:40px; width:auto; display:block; }
+.cv__h { margin-top:30px; font-size:60px; font-weight:700; line-height:1.04; letter-spacing:-.045em; }
+.cv__chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+.cv__chips .chip { padding:9px 18px; font-size:22px; border-width:1.5px; }
+.chip--ink { background:#111; border-color:#111; color:#fff; }
+.cv__contact { display:flex; gap:26px; margin-top:26px; font-size:24px; font-weight:600; }
+.cv__contact span { display:inline-flex; align-items:center; gap:8px; }
+.cv__contact svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.cv__contact .u { color:var(--accent-d); }
+.cv__devices { left:900px; top:0; width:460px; height:624px; }
+.cv__browser { left:0; top:130px; width:420px; }
+.cv__browser .bar { height:34px; gap:7px; padding:0 14px; }
+.cv__browser .bar > i { width:10px; height:10px; }
+.cv__browser .url { margin:0 24px; padding:2px 0; font-size:13px; }
+.cv__phone { left:330px; top:220px; width:140px; height:290px; padding:6px; border-radius:26px; }
+.cv__phone .pview { height:100%; border-radius:21px; }
+.cv__toast { position:absolute; display:flex; align-items:center; gap:12px; padding:12px 18px 12px 12px; border-radius:16px; background:#fff; white-space:nowrap; box-shadow:0 0 0 1px rgba(17,17,17,.06), 0 18px 34px -14px rgba(70,50,25,.45); }
+.cv__toast i { display:grid; place-items:center; width:40px; height:40px; border-radius:12px; background:var(--soft); color:var(--accent); }
+.cv__toast i.g { background:#E2F5EA; color:#0A7F43; }
+.cv__toast svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.cv__toast b { display:block; font-size:18px; font-weight:700; }
+.cv__toast small { display:block; font-size:15px; font-weight:500; color:var(--ink2); }
+.cv__toast.t1 { left:-40px; top:70px; }
+.cv__toast.t2 { left:150px; top:470px; }
 </style></head><body>
 <div id="profile"><section class="slide sq profile"><div class="pi"><i class="dot"></i><i class="stem"></i></div></section></div>
 <div id="p1-1"><section class="slide b1"><p class="kick">Γνωριστείτε μαζί μας</p>
@@ -192,4 +223,18 @@ section.b1 .chat ~ .chips { top:1110px; right:60px; gap:12px; } section.b1 .chat
 <div class="card chat"><div class="chat__head"><span class="av"><svg viewBox="0 0 24 24"><path d="M12 3.5l1.9 4.6 4.6 1.9-4.6 1.9L12 16.5l-1.9-4.6L5.5 10l4.6-1.9z"/></svg></span><span><b>Ψηφιακή γραμματεία</b><small><i></i>Online τώρα</small></span><span class="chat__time">23:47</span></div>
 <div class="chat__body"><p class="msg in">Καλησπέρα! Έχετε κάτι ελεύθερο αύριο;</p><p class="msg out">Καλησπέρα! Αύριο έχουμε 11:00 ή 17:30. Ποια ώρα σας βολεύει;</p><p class="msg in">17:30</p><p class="msg out">Έγινε! Σας περιμένουμε αύριο στις 17:30. Θα σας στείλω υπενθύμιση το πρωί.</p><p class="note"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Νέο ραντεβού στο ημερολόγιο</p></div></div>
 <div class="chips"><span class="chip chip--blue">Απαντά 24/7</span><span class="chip">Κλείνει ραντεβού</span><span class="chip">Στέλνει υπενθυμίσεις</span></div><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="fb-cover"><section class="cover">
+<div class="cv__text">
+  <img class="cv__logo" src="../../assets/logo.svg" alt="">
+  <h1 class="cv__h">Η βιτρίνα σας, στο κινητό <span class="mark">κάθε πελάτη.</span></h1>
+  <div class="cv__chips"><span class="chip chip--ink">Ιστοσελίδες</span><span class="chip">E-shop</span><span class="chip">Social media</span><span class="chip">Βίντεο</span><span class="chip">AI bots</span></div>
+  <p class="cv__contact"><span><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>211 218 6538</span><span class="u">istoselidakias.gr</span></p>
+</div>
+<div class="cv__devices">
+  <div class="browser cv__browser"><div class="bar"><i></i><i></i><i></i><span class="url">istoselidakias.gr/demos/<b>04-hair</b></span></div><div class="view"><img src="../../assets/shots/04-hair-desktop-thumb.webp" alt=""></div></div>
+  <div class="phone cv__phone"><div class="pview"><img src="../../assets/shots/04-hair-mobile-thumb.webp" alt=""></div></div>
+  <div class="cv__toast t1"><i><svg viewBox="0 0 24 24"><path d="M12 3.5l1.9 4.6 4.6 1.9-4.6 1.9L12 16.5l-1.9-4.6L5.5 10l4.6-1.9z"/></svg></i><span><b>Νέο ραντεβού · Τρίτη 11:00</b><small>από την ψηφιακή γραμματεία</small></span></div>
+  <div class="cv__toast t2"><i class="g"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.5L21 8H6"/></svg></i><span><b>Νέα παραγγελία</b><small>24,50 €</small></span></div>
+</div>
+</section></div>
 </body></html>
