@@ -1,0 +1,195 @@
+<!doctype html><html lang="el"><head><meta charset="utf-8"><style>@font-face{font-family:Inter;font-weight:400;src:url(../../assets/fonts/inter-greek-400-normal.woff2);unicode-range:U+0370-03FF,U+1F00-1FFF;}
+@font-face{font-family:Inter;font-weight:400;src:url(../../assets/fonts/inter-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-21FF;}
+@font-face{font-family:Inter;font-weight:500;src:url(../../assets/fonts/inter-greek-500-normal.woff2);unicode-range:U+0370-03FF,U+1F00-1FFF;}
+@font-face{font-family:Inter;font-weight:500;src:url(../../assets/fonts/inter-latin-500-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-21FF;}
+@font-face{font-family:Inter;font-weight:600;src:url(../../assets/fonts/inter-greek-600-normal.woff2);unicode-range:U+0370-03FF,U+1F00-1FFF;}
+@font-face{font-family:Inter;font-weight:600;src:url(../../assets/fonts/inter-latin-600-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-21FF;}
+@font-face{font-family:Inter;font-weight:700;src:url(../../assets/fonts/inter-greek-700-normal.woff2);unicode-range:U+0370-03FF,U+1F00-1FFF;}
+@font-face{font-family:Inter;font-weight:700;src:url(../../assets/fonts/inter-latin-700-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2190-21FF;}
+
+:root { --paper:#F6F5F2; --ink:#111; --ink2:#55524C; --line:#E2DFD8; --sand:#ECE6DB; --accent:#3B5BFD; --accent-d:#2A47E0; --soft:#E8ECFF; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#999; font-family:Inter, sans-serif; color:var(--ink); -webkit-font-smoothing:antialiased; }
+.slide { position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--paper); margin-bottom:20px; }
+.slide.sq { height:1080px; }
+.slide::before { content:""; position:absolute; z-index:0; border-radius:50%; background:var(--sand); }
+.b1::before { width:820px; height:820px; right:-330px; top:-300px; }
+.b2::before { width:900px; height:900px; left:-420px; bottom:-380px; }
+.b3::before { width:760px; height:760px; right:-300px; bottom:-260px; }
+.slide > * { position:relative; z-index:1; }
+.kick { position:absolute; left:90px; top:96px; display:flex; align-items:center; gap:16px; font-size:26px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-d); }
+.kick::before { content:""; width:48px; height:3px; border-radius:3px; background:currentColor; }
+.count { position:absolute; right:90px; top:90px; padding:8px 18px; border-radius:999px; background:#fff; border:2px solid var(--line); font-size:24px; font-weight:600; color:var(--ink2); }
+.ft { position:absolute; left:90px; right:90px; bottom:70px; display:flex; align-items:center; justify-content:space-between; }
+.ft img { height:40px; width:auto; }
+.ft span { font-size:26px; font-weight:600; color:var(--ink2); }
+.h { position:absolute; left:90px; right:90px; top:170px; font-size:88px; font-weight:700; line-height:1.04; letter-spacing:-.045em; }
+.h--s { font-size:74px; }
+.mark { color:var(--ink); padding-bottom:.08em; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M4 13 C 70 4, 160 3, 296 9' fill='none' stroke='%233B5BFD' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 0 100% / 100% .2em; }
+.sub { position:absolute; left:90px; right:90px; font-size:38px; font-weight:500; line-height:1.38; color:var(--ink2); letter-spacing:-.01em; }
+.swipe { position:absolute; left:90px; bottom:150px; font-size:30px; font-weight:600; color:var(--accent-d); }
+.swipe b { display:inline-block; margin-left:6px; }
+.chips { position:absolute; left:90px; right:90px; display:flex; flex-wrap:wrap; gap:14px; }
+.chip { padding:14px 28px; border-radius:999px; background:#fff; border:2px solid var(--line); font-size:30px; font-weight:600; }
+.chip--blue { background:var(--accent); border-color:var(--accent); color:#fff; }
+.pill { display:inline-block; vertical-align:.18em; margin-right:10px; padding:8px 24px; border-radius:999px; background:var(--accent); color:#fff; font-size:34px; font-weight:700; letter-spacing:0; }
+.pill--grey { background:#D9D5CD; color:var(--ink); }
+.card { position:absolute; background:#fff; border-radius:32px; box-shadow:0 0 0 2px rgba(17,17,17,.05), 0 40px 80px -36px rgba(70,50,25,.5); }
+
+/* profile */
+.profile { background:#111; }
+.profile::before { display:none; }
+.pi { position:absolute; left:50%; top:50%; width:1px; height:1px; }
+.pi .dot, .itile .dot { position:absolute; border-radius:50%; background:var(--accent); }
+.pi .stem, .itile .stem { position:absolute; background:var(--paper); }
+.pi .dot { width:170px; height:170px; left:-85px; top:-330px; }
+.pi .stem { width:118px; height:420px; left:-59px; top:-110px; }
+.itile { position:absolute; left:90px; top:190px; width:200px; height:200px; border-radius:46px; background:#111; box-shadow:0 30px 60px -30px rgba(17,17,17,.6); }
+.itile .dot { width:46px; height:46px; left:77px; top:34px; }
+.itile .stem { width:32px; height:104px; left:84px; top:94px; }
+.b1 .h { }
+section.b1 .itile ~ .h { top:450px; font-size:96px; }
+section.b1 .itile ~ .sub { top:780px; }
+
+/* lists */
+.list { position:absolute; left:90px; right:90px; top:420px; list-style:none; display:grid; gap:18px; }
+.list li { display:flex; align-items:center; gap:26px; padding:24px 30px; border-radius:26px; background:#fff; box-shadow:0 0 0 2px rgba(17,17,17,.05), 0 24px 40px -30px rgba(70,50,25,.45); }
+.list svg { width:66px; height:66px; flex:none; padding:15px; border-radius:18px; background:var(--soft); fill:none; stroke:var(--accent); stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.list b { font-size:38px; font-weight:600; letter-spacing:-.02em; }
+.list em { margin-left:auto; font-style:normal; font-size:30px; font-weight:700; color:var(--accent-d); white-space:nowrap; }
+.vals { position:absolute; left:90px; right:90px; top:180px; list-style:none; display:grid; gap:44px; }
+.vals li { display:flex; gap:30px; align-items:flex-start; }
+.vals svg, .grid2 svg { flex:none; width:84px; height:84px; padding:19px; border-radius:24px; background:var(--accent); fill:none; stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+.vals b { display:block; font-size:58px; font-weight:700; line-height:1.08; letter-spacing:-.035em; }
+.vals small { display:block; margin-top:10px; font-size:32px; line-height:1.35; color:var(--ink2); }
+.ctacard { left:90px; right:90px; top:860px; display:grid; gap:12px; padding:40px 44px; background:#111; color:#fff; }
+.ctacard b { font-size:46px; letter-spacing:-.03em; }
+.ctacard span { display:flex; align-items:center; gap:14px; font-size:36px; font-weight:600; }
+.ctacard svg { width:36px; height:36px; fill:none; stroke:#8FA3FF; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.ctacard .u { color:#8FA3FF; }
+.grid2 { position:absolute; left:90px; right:90px; top:420px; list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.grid2 li { display:flex; align-items:center; gap:22px; padding:26px 26px; border-radius:26px; background:#fff; box-shadow:0 0 0 2px rgba(17,17,17,.05), 0 24px 40px -30px rgba(70,50,25,.45); font-size:31px; font-weight:600; line-height:1.2; letter-spacing:-.015em; }
+.grid2 svg { width:64px; height:64px; padding:15px; border-radius:18px; }
+.note2 { position:absolute; left:90px; right:90px; top:960px; font-size:30px; color:var(--ink2); }
+.note2 b { color:var(--ink); }
+
+/* devices */
+.browser { position:absolute; overflow:hidden; border-radius:24px; background:#fff; box-shadow:0 0 0 2px rgba(17,17,17,.06), 0 50px 90px -44px rgba(70,50,25,.6); }
+.bar { display:flex; align-items:center; gap:10px; height:54px; padding:0 22px; background:#F3F2EF; border-bottom:2px solid #E4E1DA; }
+.bar > i { width:15px; height:15px; border-radius:50%; background:#FF5F57; } .bar > i + i { background:#FEBC2E; } .bar > i + i + i { background:#28C840; }
+.url { flex:1; margin:0 50px; padding:4px 0; border-radius:999px; background:#fff; border:2px solid #E4E1DA; color:#77736B; font-size:21px; text-align:center; white-space:nowrap; }
+.url b { color:var(--ink); font-weight:600; }
+.view { position:relative; overflow:hidden; }
+.view img { display:block; width:100%; height:auto; }
+.tag { position:absolute; left:20px; top:20px; padding:8px 18px; border-radius:999px; background:rgba(17,17,17,.8); color:#fff; font-size:22px; font-weight:600; }
+.phone { position:absolute; padding:9px; border-radius:44px; background:#111; box-shadow:0 40px 70px -30px rgba(70,50,25,.7); }
+.pview { overflow:hidden; border-radius:36px; background:#fff; }
+.pview img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+.b-hero { left:70px; top:430px; width:800px; } .p-hero { right:70px; top:610px; width:240px; height:490px; } .p-hero .pview { height:100%; }
+.slide .chips { top:1060px; right:360px; }
+section.b1 .itile ~ .chips { right:90px; }
+.b-ba { left:90px; right:90px; top:400px; }
+.p-ba { right:60px; top:690px; width:230px; height:470px; } .p-ba .pview { height:100%; }
+.chips--ba { top:1040px !important; right:330px !important; }
+.bad { position:absolute; left:90px; right:90px; top:1050px; list-style:none; display:grid; gap:14px; }
+.bad li { display:flex; align-items:center; gap:16px; font-size:34px; font-weight:600; color:#8A3B2E; }
+.bad li::before { content:"✕"; display:grid; place-items:center; width:44px; height:44px; border-radius:50%; background:#F6DCD5; color:#B5462F; font-size:24px; }
+
+/* tips */
+.big3 { position:absolute; left:70px; top:120px; font-size:640px; font-weight:700; line-height:1; letter-spacing:-.06em; color:var(--accent); }
+.h--low { top:770px; font-size:84px; }
+.callmock { position:absolute; left:50%; top:600px; width:400px; height:600px; margin-left:-200px; padding:12px; border-radius:56px; background:#111; box-shadow:0 40px 70px -30px rgba(70,50,25,.7); }
+.cm__screen { display:flex; flex-direction:column; gap:18px; height:100%; padding:60px 34px 34px; border-radius:46px; background:#FBF7F0; }
+.cm__screen b { font-size:38px; letter-spacing:-.02em; }
+.cm__screen small { color:#0F766E; font-size:24px; font-weight:600; }
+.cm__btn { display:flex; align-items:center; justify-content:center; gap:12px; padding:22px; border-radius:999px; background:var(--accent); color:#fff; font-size:32px; font-weight:700; }
+.cm__screen .cm__btn:first-of-type { margin-top:auto; box-shadow:0 0 0 12px rgba(59,91,253,.15); }
+.cm__btn--line { background:transparent; border:3px solid var(--accent); color:var(--accent-d); }
+.cm__btn svg { width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.vs { position:absolute; left:90px; right:90px; top:590px; display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.vs__col { display:flex; flex-direction:column; align-items:center; gap:24px; }
+.p-vs { position:relative; width:280px; height:540px; } .p-vs .pview { height:100%; }
+.mapcard { left:90px; right:90px; top:600px; overflow:hidden; }
+.map { position:relative; height:360px; background-color:#DCE9E1; background-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0), linear-gradient(#fff 0 0), linear-gradient(112deg, transparent 47%, #BFE0F0 47% 55%, transparent 55%); background-repeat:no-repeat; background-size:100% 14px, 14px 100%, 100% 9px, 100% 100%; background-position:0 45%, 62% 0, 0 82%, 0 0; }
+.pin { position:absolute; left:62%; top:45%; width:64px; height:64px; margin:-66px 0 0 -32px; border-radius:50% 50% 50% 0; background:#E11D48; transform:rotate(-45deg); box-shadow:-6px 10px 20px rgba(0,0,0,.25); }
+.pin::after { content:""; position:absolute; inset:19px; border-radius:50%; background:#fff; }
+.mapinfo { display:flex; align-items:center; gap:20px; flex-wrap:wrap; padding:30px 36px; }
+.mapinfo b { font-size:38px; letter-spacing:-.02em; width:100%; }
+.mapinfo small { font-size:28px; color:var(--ink2); }
+.stars { font-style:normal; color:#E39B00; letter-spacing:2px; }
+.mapinfo .cm__btn { margin-left:auto; padding:16px 30px; font-size:28px; }
+.endq { position:absolute; left:90px; right:90px; top:1172px; font-size:34px; font-weight:700; color:var(--accent-d); }
+
+/* chat */
+.chat { left:90px; right:90px; top:400px; overflow:hidden; }
+.chat__head { display:flex; align-items:center; gap:18px; padding:22px 28px; border-bottom:2px solid var(--line); }
+.av { display:grid; place-items:center; width:66px; height:66px; border-radius:50%; background:var(--accent); }
+.av svg { width:34px; height:34px; fill:none; stroke:#fff; stroke-width:1.8; stroke-linejoin:round; }
+.chat__head b { display:block; font-size:32px; }
+.chat__head small { display:flex; align-items:center; gap:8px; color:#066B37; font-size:24px; font-weight:600; }
+.chat__head small i { width:12px; height:12px; border-radius:50%; background:#22C55E; }
+.chat__time { margin-left:auto; color:#66625B; font-size:28px; font-weight:600; }
+.chat__body { display:flex; flex-direction:column; gap:16px; padding:28px; background:#F7F6F3; }
+.msg { max-width:82%; padding:18px 26px; border-radius:30px; font-size:30px; line-height:1.35; }
+.msg.in { align-self:flex-start; background:#fff; border:2px solid var(--line); border-bottom-left-radius:8px; }
+.msg.out { align-self:flex-end; background:var(--accent); color:#fff; border-bottom-right-radius:8px; }
+.note { align-self:center; display:inline-flex; align-items:center; gap:10px; padding:12px 22px; border-radius:999px; background:#E2F5EA; color:#066B37; font-size:26px; font-weight:600; }
+.note svg { width:26px; height:26px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+section.b1 .chat ~ .chips { top:1110px; right:60px; gap:12px; } section.b1 .chat ~ .chips .chip { padding:12px 22px; font-size:27px; }
+</style></head><body>
+<div id="profile"><section class="slide sq profile"><div class="pi"><i class="dot"></i><i class="stem"></i></div></section></div>
+<div id="p1-1"><section class="slide b1"><p class="kick">Γνωριστείτε μαζί μας</p>
+<div class="itile"><i class="dot"></i><i class="stem"></i></div>
+<h1 class="h">Γεια σας! Είμαστε το <span class="mark">Istoselidakias.</span></h1>
+<p class="sub">Μια νέα ομάδα που φέρνει την επιχείρησή σας online, σε όλη την Ελλάδα.</p>
+<div class="chips" style="top:960px"><span class="chip">Ιστοσελίδες</span><span class="chip">Social media</span><span class="chip">Βίντεο</span><span class="chip">AI</span></div>
+<p class="swipe">Σύρετε για να μας γνωρίσετε <b>→</b></p><span class="count">1/3</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p1-2"><section class="slide b2"><p class="kick">Τι κάνουμε</p>
+<h1 class="h h--s">Ό,τι χρειάζεται η επιχείρησή σας για να φαίνεται online.</h1>
+<ul class="list"><li><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="14" rx="2.5"/><path d="M2.5 8h19M8 21h8"/></svg><b>Ιστοσελίδες & e-shop</b><em>από 290 €</em></li><li><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg><b>Social media</b><em>από 120 € / μήνα</em></li><li><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="14" height="13" rx="3"/><path d="M16.5 10.5 21.5 7.5v9l-5-3"/></svg><b>Βίντεο με voice over</b><em>από 90 €</em></li><li><svg viewBox="0 0 24 24"><path d="M12 3.5l1.9 4.6 4.6 1.9-4.6 1.9L12 16.5l-1.9-4.6L5.5 10l4.6-1.9z"/></svg><b>Ψηφιακή γραμματεία</b><em>από 490 €</em></li><li><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><b>Διαφήμιση στο Google</b><em>40 € / μήνα</em></li></ul><span class="count">2/3</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p1-3"><section class="slide b3"><p class="kick">Γιατί εμάς</p>
+<ul class="vals"><li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Μεράκι, όχι ξεπέτα.</b><small>Κάθε δουλειά με την ίδια προσοχή, όσο μικρή κι αν είναι.</small></span></li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Μιλάτε απευθείας μαζί μας.</b><small>Χωρίς τηλεφωνικά κέντρα και ενδιάμεσους.</small></span></li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Τιμές που ξέρετε από πριν.</b><small>Χωρίς ψιλά γράμματα και κρυφές χρεώσεις.</small></span></li></ul>
+<div class="card ctacard"><b>Πείτε μας για την επιχείρησή σας.</b><span><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>211 218 6538</span><span class="u">istoselidakias.gr</span></div><span class="count">3/3</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p2-1"><section class="slide b2"><p class="kick">Ιστοσελίδες</p>
+<h1 class="h">Η ιστοσελίδα σας, από <span class="mark">290&nbsp;€.</span></h1>
+<div class="browser b-hero"><div class="bar"><i></i><i></i><i></i><span class="url">istoselidakias.gr/demos/<b>01-butcher</b></span></div><div class="view"><img src="../../assets/shots/01-butcher-desktop-thumb.webp" alt=""></div></div><div class="phone p-hero"><div class="pview"><img src="../../assets/shots/01-butcher-mobile-thumb.webp" alt=""></div></div>
+<div class="chips"><span class="chip chip--blue">Χωρίς μηνιαία συνδρομή</span><span class="chip">Έτοιμη σε 7–10 ημέρες</span></div>
+<span class="count">1/2</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p2-2"><section class="slide b1"><p class="kick">Τι περιλαμβάνει</p>
+<h1 class="h">Όλα μέσα, από την πρώτη μέρα.</h1>
+<ul class="grid2"><li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Σωστή σε κινητό και υπολογιστή</span></li><li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Κουμπί για κλήση και Viber</span></li><li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Domain στο όνομά σας</span></li><li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Φιλοξενία και SSL τον 1ο χρόνο</span></li><li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Προφίλ στο Google Maps</span></li><li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Βασικό SEO για το Google</span></li></ul>
+<p class="note2">Από τον 2ο χρόνο: <b>79&nbsp;€ τον χρόνο</b> για domain, φιλοξενία και SSL.</p><span class="count">2/2</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p3-1"><section class="slide b3"><p class="kick">Πριν &amp; μετά</p>
+<h1 class="h"><span class="pill pill--grey">Πριν</span> Ένα site που κανείς δεν βλέπει.</h1>
+<div class="browser b-ba"><div class="bar"><i></i><i></i><i></i><span class="url">to-kopidi.gr</span></div><div class="view"><img src="../../assets/shots/before-kopidi-desktop.webp" alt=""></div></div>
+<ul class="bad"><li>Δεν διαβάζεται στο κινητό</li><li>Κανένα κουμπί για κλήση</li><li>Δεν βγαίνει στο Google</li></ul>
+<span class="count">1/2</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p3-2"><section class="slide b2"><p class="kick">Πριν &amp; μετά</p>
+<h1 class="h"><span class="pill">Μετά</span> Ένα site που <span class="mark">φέρνει πελάτες.</span></h1>
+<div class="browser b-ba"><div class="bar"><i></i><i></i><i></i><span class="url">to-kopidi.gr</span></div><div class="view"><img src="../../assets/shots/01-butcher-desktop-thumb.webp" alt=""></div></div><div class="phone p-ba"><div class="pview"><img src="../../assets/shots/01-butcher-mobile-thumb.webp" alt=""></div></div>
+<div class="chips chips--ba"><span class="chip">Σωστό στο κινητό</span><span class="chip">Κουμπί κλήσης</span><span class="chip">Στο Google Maps</span></div><span class="count">2/2</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p4-1"><section class="slide b3"><p class="kick">Συμβουλές</p>
+<p class="big3">3</p>
+<h1 class="h h--low">πράγματα που πρέπει να έχει <span class="mark">το site σας.</span></h1>
+<p class="swipe">Σύρετε <b>→</b></p><span class="count">1/4</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p4-2"><section class="slide b1"><p class="kick">Συμβουλή 1 από 3</p>
+<h1 class="h">Κουμπί κλήσης με ένα πάτημα.</h1>
+<p class="sub" style="top:410px">Στο κινητό, ο πελάτης δεν θέλει να αντιγράψει τον αριθμό σας. Θέλει να πατήσει και να σας καλέσει.</p>
+<div class="callmock"><div class="cm__screen"><b>Η επιχείρησή σας</b><small>Ανοιχτά σήμερα έως 21:00</small><span class="cm__btn"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Καλέστε τώρα</span><span class="cm__btn cm__btn--line">Οδηγίες</span></div></div><span class="count">2/4</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p4-3"><section class="slide b2"><p class="kick">Συμβουλή 2 από 3</p>
+<h1 class="h">Να φαίνεται σωστά στο κινητό.</h1>
+<p class="sub" style="top:410px">Οι περισσότεροι σας ψάχνουν από το κινητό. Αν πρέπει να κάνουν zoom για να διαβάσουν, φεύγουν.</p>
+<div class="vs"><div class="vs__col"><div class="phone p-vs"><div class="pview"><img src="../../assets/shots/before-kopidi-mobile-thumb.webp" alt=""></div></div><span class="pill pill--grey">Έτσι όχι</span></div><div class="vs__col"><div class="phone p-vs"><div class="pview"><img src="../../assets/shots/01-butcher-mobile-thumb.webp" alt=""></div></div><span class="pill">Έτσι ναι</span></div></div><span class="count">3/4</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p4-4"><section class="slide b3"><p class="kick">Συμβουλή 3 από 3</p>
+<h1 class="h">Να σας βρίσκουν στον χάρτη.</h1>
+<p class="sub" style="top:410px">Ένα σωστό προφίλ στο Google Maps φέρνει κλήσεις από ανθρώπους που είναι ήδη κοντά σας.</p>
+<div class="card mapcard"><div class="map"><i class="pin"></i></div><div class="mapinfo"><b>Η επιχείρησή σας</b><small><i class="stars">★★★★★</i> 4,9 · Ανοιχτά έως 21:00</small><span class="cm__btn"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Κλήση</span></div></div>
+<p class="endq">Τα έχει το site σας; Αν όχι, μιλήστε μας.</p><span class="count">4/4</span><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+<div id="p5-1"><section class="slide b1"><p class="kick">AI για την επιχείρησή σας</p>
+<h1 class="h">Η γραμματεία σας <span class="mark">δεν κλείνει ποτέ.</span></h1>
+<div class="card chat"><div class="chat__head"><span class="av"><svg viewBox="0 0 24 24"><path d="M12 3.5l1.9 4.6 4.6 1.9-4.6 1.9L12 16.5l-1.9-4.6L5.5 10l4.6-1.9z"/></svg></span><span><b>Ψηφιακή γραμματεία</b><small><i></i>Online τώρα</small></span><span class="chat__time">23:47</span></div>
+<div class="chat__body"><p class="msg in">Καλησπέρα! Έχετε κάτι ελεύθερο αύριο;</p><p class="msg out">Καλησπέρα! Αύριο έχουμε 11:00 ή 17:30. Ποια ώρα σας βολεύει;</p><p class="msg in">17:30</p><p class="msg out">Έγινε! Σας περιμένουμε αύριο στις 17:30. Θα σας στείλω υπενθύμιση το πρωί.</p><p class="note"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Νέο ραντεβού στο ημερολόγιο</p></div></div>
+<div class="chips"><span class="chip chip--blue">Απαντά 24/7</span><span class="chip">Κλείνει ραντεβού</span><span class="chip">Στέλνει υπενθυμίσεις</span></div><footer class="ft"><img src="../../assets/logo.svg" alt=""><span>istoselidakias.gr</span></footer></section></div>
+</body></html>
